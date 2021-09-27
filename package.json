@@ -2,12 +2,20 @@
   "name": "picocolors",
   "version": "0.0.1",
   "type": "module",
-  "main": "picocolors.js",
+  "main": "./build/picocolors.cjs",
   "module": "picocolors.js",
-  "exports": "picocolors.js",
+  "exports": {
+    ".": {
+      "require": "./build/picocolors.cjs",
+      "import": "./picocolors.js",
+      "default": "./picocolors.js"
+    },
+    "./package.json": "./package.json"
+  },
   "sideEffects": false,
   "description": "The tiniest and the fastest coloring library ever",
   "scripts": {
+    "build:cjs": "tsc picocolors.js --allowJs --module commonjs --target es5 --outDir build && mv ./build/picocolors.js ./build/picocolors.cjs",
     "test": "node test.js"
   },
   "files": [
