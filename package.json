@@ -15,7 +15,7 @@
   "sideEffects": false,
   "description": "The tiniest and the fastest coloring library ever",
   "scripts": {
-    "test": "node test.js"
+    "test": "uvu tests/ test.*"
   },
   "files": [
     "picocolors.*"
@@ -31,7 +31,8 @@
   "repository": "alexeyraspopov/picocolors",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "uvu": "^0.5.1"
   },
   "prettier": {
     "printWidth": 100
