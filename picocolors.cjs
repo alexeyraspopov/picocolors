@@ -53,4 +53,4 @@ module.exports = {
   bgMagenta: formatter("\x1b[45m", "\x1b[49m"),
   bgCyan: formatter("\x1b[46m", "\x1b[49m"),
   bgWhite: formatter("\x1b[47m", "\x1b[49m"),
-});
+};
