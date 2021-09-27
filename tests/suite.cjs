@@ -1,5 +1,4 @@
-let { strict: assert } = require("assert");
-let { test } = require("uvu");
+let assert = require("assert");
 
 const FMT = {
 	reset: ["\x1b[0m", "\x1b[0m"],
@@ -29,7 +28,7 @@ const FMT = {
 	bgWhite: ["\x1b[47m", "\x1b[49m"],
 };
 
-exports.runTestSuite = function runTestSuite(pc) {
+exports.runTestSuite = function runTestSuite(target, pc) {
 	test("color matching", () => {
 		for (let format in FMT) {
 			assert.equal(pc[format]("string"), FMT[format][0] + "string" + FMT[format][1]);
@@ -125,5 +124,13 @@ exports.runTestSuite = function runTestSuite(pc) {
 		);
 	});
 
-	test.run();
+	function test(name, fn) {
+		try {
+			fn();
+			console.log(pc.green("✓ " + target + ": " + name));
+		} catch (error) {
+			console.log(pc.red("✗ " + target + ": " + name));
+			throw error;
+		}
+	}
 };
