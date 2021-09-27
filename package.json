@@ -15,7 +15,7 @@
   "sideEffects": false,
   "description": "The tiniest and the fastest coloring library ever",
   "scripts": {
-    "test": "node test.js"
+    "test": "node tests/test.js && node tests/test.cjs"
   },
   "files": [
     "picocolors.*"
