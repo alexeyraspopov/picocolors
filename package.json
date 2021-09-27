@@ -1,6 +1,6 @@
 {
   "name": "picocolors",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "main": "./picocolors.cjs",
   "module": "./picocolors.js",
