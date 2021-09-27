@@ -12,6 +12,10 @@
     },
     "./package.json": "./package.json"
   },
+  "browser": {
+    "./picocolors.js": "./picocolors.browser.js",
+    "./picocolors.cjs": "./picocolors.browser.cjs"
+  },
   "sideEffects": false,
   "description": "The tiniest and the fastest coloring library ever",
   "scripts": {
