@@ -32,6 +32,7 @@ exports.runTestSuite = function runTestSuite(target, pc) {
 	test("color matching", () => {
 		for (let format in FMT) {
 			assert.equal(pc[format]("string"), FMT[format][0] + "string" + FMT[format][1]);
+			console.log(pc[format]("testing: " + format));
 		}
 	});
 
