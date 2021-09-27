@@ -14,6 +14,7 @@ console.log(green(`How are ${italic(`you`)} doing?`));
 - 3x faster and 10x smaller than `chalk`
 - [TypeScript](https://www.typescriptlang.org/) & [Flowtype](https://flow.org/) support
 - [`NO_COLOR`](https://no-color.org/) friendly
+- Node.js v6+ & browsers support
 - The same API, but faster, much faster
 - No `String.prototype` modifications (anyone still doing it?)
 - No dependencies and the smallest `node_modules` footprint
