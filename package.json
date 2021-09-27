@@ -1,0 +1,33 @@
+{
+  "name": "picocolors",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "picocolors.js",
+  "module": "picocolors.js",
+  "exports": "picocolors.js",
+  "sideEffects": false,
+  "description": "The tiniest and the fastest coloring library ever",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "picocolors.d.ts",
+    "picocolors.js.flow"
+  ],
+  "keywords": [
+    "terminal",
+    "colors",
+    "formatting",
+    "cli",
+    "console"
+  ],
+  "author": "Alexey Raspopov",
+  "repository": "alexeyraspopov/picocolors",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  },
+  "prettier": {
+    "printWidth": 100
+  }
+}
