@@ -42,7 +42,7 @@ ansi-colors    25 kB
 kleur          21 kB
 colorette      16 kB
 nanocolors     16 kB
-+picocolors     8 kB
++picocolors     6 kB
 ```
 
 ```diff
