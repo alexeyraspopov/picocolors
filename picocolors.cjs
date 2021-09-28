@@ -20,10 +20,10 @@ function formatter(open, close, replace = open) {
 }
 
 function replaceClose(string, close, replace, index) {
-  if (!~index) return string;
   let start = string.substring(0, index) + replace;
   let end = string.substring(index + close.length);
-  return start + replaceClose(end, close, replace, end.indexOf(close));
+  let nextIndex = end.indexOf(close);
+  return !~nextIndex ? start + end : start + replaceClose(end, close, replace, nextIndex);
 }
 
 module.exports = {
