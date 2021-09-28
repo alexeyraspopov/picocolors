@@ -4,6 +4,7 @@
   "type": "module",
   "main": "./picocolors.cjs",
   "module": "./picocolors.js",
+  "types": "./picocolors.d.ts",
   "exports": {
     ".": {
       "require": "./picocolors.cjs",
