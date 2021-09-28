@@ -35,9 +35,13 @@
   "repository": "alexeyraspopov/picocolors",
   "license": "ISC",
   "devDependencies": {
+    "clean-publish": "^3.0.3",
     "prettier": "^2.4.1"
   },
   "prettier": {
     "printWidth": 100
+  },
+  "clean-publish": {
+     "cleanDocs": true
   }
 }
