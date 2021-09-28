@@ -10,12 +10,8 @@ export let isColorSupported =
 
 function formatter(open, close, replace = open) {
   return isColorSupported
-    ? (string) => {
-        let index = string.indexOf(close, open.length);
-        return !~index
-          ? open + string + close
-          : open + replaceClose(string, close, replace, index) + close;
-      }
+    ? (string) =>
+        open + replaceClose(string, close, replace, string.indexOf(close, open.length)) + close
     : (string) => string;
 }
 
