@@ -8,7 +8,7 @@ on:
 
 jobs:
   modern:
-    name: Node v12-16
+    name: Node v${{ matrix.node-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,7 +25,7 @@ jobs:
       - run: node tests/test.js
       - run: node tests/test.cjs
   legacy:
-    name: Node v6-10
+    name: Node v${{ matrix.node-version }} (Legacy)
     runs-on: ubuntu-latest
     strategy:
       matrix:
