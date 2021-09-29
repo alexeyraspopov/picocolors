@@ -7,7 +7,7 @@ const RUNS = 50;
 const results = {};
 
 for (let i = 0; i < RUNS; i++) {
-  const output = execSync("node ./tests/loading-runner.cjs").toString();
+  const output = execSync("node ./benchmarks/loading-runner.cjs").toString();
   output
     .trim()
     .split("\n")
