@@ -36,6 +36,14 @@
   "repository": "alexeyraspopov/picocolors",
   "license": "ISC",
   "devDependencies": {
+    "ansi-colors": "^4.1.1",
+    "benchmark": "^2.1.4",
+    "chalk": "^4.1.2",
+    "cli-color": "^2.0.0",
+    "colorette": "^2.0.12",
+    "felt-pen": "^2.0.0",
+    "kleur": "^4.1.4",
+    "nanocolors": "^0.2.12",
     "prettier": "^2.4.1"
   },
   "prettier": {
