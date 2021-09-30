@@ -65,5 +65,6 @@ suite
   })
   .on("error", (event) => {
     process.stderr.write(picocolors.red(event.target.error.toString()) + "\n");
+    process.exit(1);
   })
   .run();

@@ -95,7 +95,7 @@ suite
         " Add plugin " +
           picocolors.yellow("name") +
           " to use time limit with " +
-          picocolors.yellow(++index)
+          picocolors.yellow(`${++index}`)
       );
   })
   .on("cycle", (event) => {
@@ -106,5 +106,6 @@ suite
   })
   .on("error", (event) => {
     process.stderr.write(picocolors.red(event.target.error.toString()) + "\n");
+    process.exit(1);
   })
   .run();
