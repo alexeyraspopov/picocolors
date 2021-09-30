@@ -12,7 +12,6 @@ import * as kleurColors from "kleur/colors";
 import chalk from "chalk";
 import ansi from "ansi-colors";
 import cliColor from "cli-color";
-import * as pen from "felt-pen";
 import * as picocolors from "../picocolors.js";
 import * as nanocolors from "nanocolors";
 
@@ -79,13 +78,6 @@ suite
           colorette.yellow(++index)
       );
   })
-  .add("felt-pen", () => {
-    out =
-      pen.Red(" ERROR ") +
-      pen.red(
-        " Add plugin " + pen.yellow("name") + " to use time limit with " + pen.yellow(++index)
-      );
-  })
   .add("nanocolors", () => {
     out =
       nanocolors.bgRed(nanocolors.black(" ERROR ")) +
@@ -103,7 +95,7 @@ suite
         " Add plugin " +
           picocolors.yellow("name") +
           " to use time limit with " +
-          picocolors.yellow(`${++index}`)
+          picocolors.yellow(++index)
       );
   })
   .on("cycle", (event) => {

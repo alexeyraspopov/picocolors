@@ -12,7 +12,6 @@ import * as kleurColors from "kleur/colors";
 import chalk from "chalk";
 import ansi from "ansi-colors";
 import cliColor from "cli-color";
-import * as pen from "felt-pen";
 import * as picocolors from "../picocolors.js";
 import * as nanocolors from "nanocolors";
 
@@ -27,7 +26,6 @@ console.log(kleur.green("kleur"));
 console.log(chalk.green("chalk"));
 console.log(ansi.green("ansi"));
 console.log(cliColor.green("cliColor"));
-console.log(pen.green("pen"));
 console.log(picocolors.green("picocolors"));
 console.log(nanocolors.green("nanocolors"));
 
@@ -36,38 +34,28 @@ let out;
 
 suite
   .add("chalk", () => {
-    out = chalk.bgRed.black(" ERROR ") + chalk.red(" Add plugin to use time limit");
+    out = chalk.red("Add plugin to use time limit");
   })
   .add("cli-color", () => {
-    out = cliColor.bgRed.black(" ERROR ") + cliColor.red(" Add plugin to use time limit");
+    out = cliColor.red("Add plugin to use time limit");
   })
   .add("ansi-colors", () => {
-    out = ansi.bgRed.black(" ERROR ") + ansi.red(" Add plugin to use time limit");
+    out = ansi.red("Add plugin to use time limit");
   })
   .add("kleur", () => {
-    out = kleur.bgRed().black(" ERROR ") + kleur.red(" Add plugin to use time limit");
+    out = kleur.red("Add plugin to use time limit");
   })
   .add("kleur/colors", () => {
-    out =
-      kleurColors.bgRed(kleurColors.black(" ERROR ")) +
-      kleurColors.red(" Add plugin to use time limit");
+    out = kleurColors.red("Add plugin to use time limit");
   })
   .add("colorette", () => {
-    out =
-      colorette.bgRed(colorette.black(" ERROR ")) + colorette.red(" Add plugin to use time limit");
-  })
-  .add("felt-pen", () => {
-    out = pen.Red(" ERROR ") + pen.red(" Add plugin to use time limit");
+    out = colorette.red("Add plugin to use time limit");
   })
   .add("nanocolors", () => {
-    out =
-      nanocolors.bgRed(nanocolors.black(" ERROR ")) +
-      nanocolors.red(" Add plugin to use time limit");
+    out = nanocolors.red("Add plugin to use time limit");
   })
   .add("picocolors", () => {
-    out =
-      picocolors.bgRed(picocolors.black(" ERROR ")) +
-      picocolors.red(" Add plugin to use time limit");
+    out = picocolors.red("Add plugin to use time limit");
   })
   .on("cycle", (event) => {
     const prefix = event.target.name === "picocolors" ? "+ " : "  ";
