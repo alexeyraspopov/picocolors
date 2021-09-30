@@ -17,6 +17,7 @@
     "./picocolors.js": "./picocolors.browser.js",
     "./picocolors.cjs": "./picocolors.browser.cjs"
   },
+  "react-native": "picocolors.browser.js",
   "sideEffects": false,
   "description": "The tiniest and the fastest coloring library ever",
   "scripts": {
