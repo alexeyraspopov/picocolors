@@ -39,7 +39,6 @@ async function start() {
   await benchmark("  ansi-colors");
   await benchmark("  kleur");
   await benchmark("  colorette");
-  await benchmark("  felt-pen");
   await benchmark("  nanocolors");
   await benchmark("+ picocolors");
 }
