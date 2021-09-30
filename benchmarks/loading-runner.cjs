@@ -31,10 +31,6 @@ let colorette = require("colorette");
 showTime("colorette");
 
 before = performance.now();
-let pen = require("felt-pen");
-showTime("felt-pen");
-
-before = performance.now();
 let nanocolors = require("nanocolors");
 showTime("nanocolors");
 
