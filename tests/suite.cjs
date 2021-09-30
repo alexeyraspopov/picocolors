@@ -125,6 +125,25 @@ exports.runTestSuite = function runTestSuite(target, pc) {
 		);
 	});
 
+	test('support non-string values', () => {
+		assert.equal(
+			pc.red(),
+			FMT.red[0] + "undefined" + FMT.red[1]
+		);
+		assert.equal(
+			pc.red(undefined),
+			FMT.red[0] + "undefined" + FMT.red[1]
+		);
+		assert.equal(
+			pc.red(null),
+			FMT.red[0] + "null" + FMT.red[1]
+		);
+		assert.equal(
+			pc.red(1),
+			FMT.red[0] + "1" + FMT.red[1]
+		);
+	})
+
 	function test(name, fn) {
 		try {
 			fn();

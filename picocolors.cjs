@@ -10,13 +10,14 @@ let isColorSupported =
 
 function formatter(open, close, replace = open) {
   return isColorSupported
-    ? (string) => {
+    ? (input) => {
+        let string = '' + input
         let index = string.indexOf(close, open.length);
         return !~index
           ? open + string + close
           : open + replaceClose(string, close, replace, index) + close;
       }
-    : (string) => string;
+    : (input) => '' + input;
 }
 
 function replaceClose(string, close, replace, index) {
