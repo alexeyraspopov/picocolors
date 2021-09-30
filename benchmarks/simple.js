@@ -22,6 +22,15 @@ function formatNumber(number) {
     .replace(/^(\d|\d\d)(\d{3},)/, "$1,$2");
 }
 
+console.log(colorette.green("colorette"));
+console.log(kleur.green("kleur"));
+console.log(chalk.green("chalk"));
+console.log(ansi.green("ansi"));
+console.log(cliColor.green("cliColor"));
+console.log(pen.green("pen"));
+console.log(picocolors.green("picocolors"));
+console.log(nanocolors.green("nanocolors"));
+
 const suite = new benchmark.Suite();
 let out;
 
