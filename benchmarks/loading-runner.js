@@ -35,5 +35,5 @@ let nanocolors = require("nanocolors");
 showTime("nanocolors");
 
 before = performance.now();
-let picocolors = require("../picocolors.cjs");
+let picocolors = require("../picocolors.js");
 showTime("picocolors");
