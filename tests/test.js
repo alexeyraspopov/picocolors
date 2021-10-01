@@ -1,4 +1,4 @@
-import * as pc from "../picocolors.js";
-import { runTestSuite } from "./suite.cjs";
+let pc = require("../picocolors.js");
+let { runTestSuite } = require("./suite.js");
 
-runTestSuite("ESM", pc);
+runTestSuite("CJS", pc);

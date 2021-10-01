@@ -23,7 +23,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: node tests/test.js
-      - run: node tests/test.cjs
   legacy:
     name: Node v${{ matrix.node-version }} (Legacy)
     runs-on: ubuntu-latest
@@ -39,4 +38,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: node tests/test.cjs
+      - run: node tests/test.js

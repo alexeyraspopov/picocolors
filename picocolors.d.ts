@@ -1,26 +1,28 @@
-export let isColorSupported: boolean;
-export function reset(input: string): string;
-export function bold(input: string): string;
-export function dim(input: string): string;
-export function italic(input: string): string;
-export function underline(input: string): string;
-export function inverse(input: string): string;
-export function hidden(input: string): string;
-export function strikethrough(input: string): string;
-export function black(input: string): string;
-export function red(input: string): string;
-export function green(input: string): string;
-export function yellow(input: string): string;
-export function blue(input: string): string;
-export function magenta(input: string): string;
-export function cyan(input: string): string;
-export function white(input: string): string;
-export function gray(input: string): string;
-export function bgBlack(input: string): string;
-export function bgRed(input: string): string;
-export function bgGreen(input: string): string;
-export function bgYellow(input: string): string;
-export function bgBlue(input: string): string;
-export function bgMagenta(input: string): string;
-export function bgCyan(input: string): string;
-export function bgWhite(input: string): string;
+module.exports = {
+	isColorSupported: boolean,
+	reset: (input: string) => string,
+	bold: (input: string) => string,
+	dim: (input: string) => string,
+	italic: (input: string) => string,
+	underline: (input: string) => string,
+	inverse: (input: string) => string,
+	hidden: (input: string) => string,
+	strikethrough: (input: string) => string,
+	black: (input: string) => string,
+	red: (input: string) => string,
+	green: (input: string) => string,
+	yellow: (input: string) => string,
+	blue: (input: string) => string,
+	magenta: (input: string) => string,
+	cyan: (input: string) => string,
+	white: (input: string) => string,
+	gray: (input: string) => string,
+	bgBlack: (input: string) => string,
+	bgRed: (input: string) => string,
+	bgGreen: (input: string) => string,
+	bgYellow: (input: string) => string,
+	bgBlue: (input: string) => string,
+	bgMagenta: (input: string) => string,
+	bgCyan: (input: string) => string,
+	bgWhite: (input: string) => string,
+};

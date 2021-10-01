@@ -1,6 +1,6 @@
-import tty from "tty";
+let tty = require("tty");
 
-export let isColorSupported =
+let isColorSupported =
   !("NO_COLOR" in process.env || process.argv.includes("--no-color")) &&
   ("FORCE_COLOR" in process.env ||
     process.argv.includes("--color") ||
@@ -9,14 +9,12 @@ export let isColorSupported =
     "CI" in process.env);
 
 function formatter(open, close, replace = open) {
-  return isColorSupported
-    ? (string) => {
-        let index = string.indexOf(close, open.length);
-        return !~index
-          ? open + string + close
-          : open + replaceClose(string, close, replace, index) + close;
-      }
-    : (string) => string;
+  return (string) => {
+    let index = string.indexOf(close, open.length);
+    return !~index
+      ? open + string + close
+      : open + replaceClose(string, close, replace, index) + close;
+  };
 }
 
 function replaceClose(string, close, replace, index) {
@@ -26,28 +24,36 @@ function replaceClose(string, close, replace, index) {
   return !~nextIndex ? start + end : start + replaceClose(end, close, replace, nextIndex);
 }
 
-export let reset = (s) => `\x1b[0m${s}\x1b[0m`;
-export let bold = formatter("\x1b[1m", "\x1b[22m", "\x1b[22m\x1b[1m");
-export let dim = formatter("\x1b[2m", "\x1b[22m", "\x1b[22m\x1b[2m");
-export let italic = formatter("\x1b[3m", "\x1b[23m");
-export let underline = formatter("\x1b[4m", "\x1b[24m");
-export let inverse = formatter("\x1b[7m", "\x1b[27m");
-export let hidden = formatter("\x1b[8m", "\x1b[28m");
-export let strikethrough = formatter("\x1b[9m", "\x1b[29m");
-export let black = formatter("\x1b[30m", "\x1b[39m");
-export let red = formatter("\x1b[31m", "\x1b[39m");
-export let green = formatter("\x1b[32m", "\x1b[39m");
-export let yellow = formatter("\x1b[33m", "\x1b[39m");
-export let blue = formatter("\x1b[34m", "\x1b[39m");
-export let magenta = formatter("\x1b[35m", "\x1b[39m");
-export let cyan = formatter("\x1b[36m", "\x1b[39m");
-export let white = formatter("\x1b[37m", "\x1b[39m");
-export let gray = formatter("\x1b[90m", "\x1b[39m");
-export let bgBlack = formatter("\x1b[40m", "\x1b[49m");
-export let bgRed = formatter("\x1b[41m", "\x1b[49m");
-export let bgGreen = formatter("\x1b[42m", "\x1b[49m");
-export let bgYellow = formatter("\x1b[43m", "\x1b[49m");
-export let bgBlue = formatter("\x1b[44m", "\x1b[49m");
-export let bgMagenta = formatter("\x1b[45m", "\x1b[49m");
-export let bgCyan = formatter("\x1b[46m", "\x1b[49m");
-export let bgWhite = formatter("\x1b[47m", "\x1b[49m");
+function createColors(enabled) {
+  return {
+    isColorSupported: enabled,
+    reset: enabled ? (s) => `\x1b[0m${s}\x1b[0m` : String,
+    bold: enabled ? formatter("\x1b[1m", "\x1b[22m", "\x1b[22m\x1b[1m") : String,
+    dim: enabled ? formatter("\x1b[2m", "\x1b[22m", "\x1b[22m\x1b[2m") : String,
+    italic: enabled ? formatter("\x1b[3m", "\x1b[23m") : String,
+    underline: enabled ? formatter("\x1b[4m", "\x1b[24m") : String,
+    inverse: enabled ? formatter("\x1b[7m", "\x1b[27m") : String,
+    hidden: enabled ? formatter("\x1b[8m", "\x1b[28m") : String,
+    strikethrough: enabled ? formatter("\x1b[9m", "\x1b[29m") : String,
+    black: enabled ? formatter("\x1b[30m", "\x1b[39m") : String,
+    red: enabled ? formatter("\x1b[31m", "\x1b[39m") : String,
+    green: enabled ? formatter("\x1b[32m", "\x1b[39m") : String,
+    yellow: enabled ? formatter("\x1b[33m", "\x1b[39m") : String,
+    blue: enabled ? formatter("\x1b[34m", "\x1b[39m") : String,
+    magenta: enabled ? formatter("\x1b[35m", "\x1b[39m") : String,
+    cyan: enabled ? formatter("\x1b[36m", "\x1b[39m") : String,
+    white: enabled ? formatter("\x1b[37m", "\x1b[39m") : String,
+    gray: enabled ? formatter("\x1b[90m", "\x1b[39m") : String,
+    bgBlack: enabled ? formatter("\x1b[40m", "\x1b[49m") : String,
+    bgRed: enabled ? formatter("\x1b[41m", "\x1b[49m") : String,
+    bgGreen: enabled ? formatter("\x1b[42m", "\x1b[49m") : String,
+    bgYellow: enabled ? formatter("\x1b[43m", "\x1b[49m") : String,
+    bgBlue: enabled ? formatter("\x1b[44m", "\x1b[49m") : String,
+    bgMagenta: enabled ? formatter("\x1b[45m", "\x1b[49m") : String,
+    bgCyan: enabled ? formatter("\x1b[46m", "\x1b[49m") : String,
+    bgWhite: enabled ? formatter("\x1b[47m", "\x1b[49m") : String,
+  };
+}
+
+module.exports = createColors(isColorSupported);
+module.exports.createColors = createColors;

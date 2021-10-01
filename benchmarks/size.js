@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { get } from "https";
+let { get } = require("https");
 
-import { bold, gray } from "../picocolors.js";
+let { bold, gray } = require("../picocolors.js");
 
 async function getJSON(url) {
   return new Promise((resolve) => {

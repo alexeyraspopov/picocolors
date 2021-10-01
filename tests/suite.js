@@ -125,6 +125,18 @@ exports.runTestSuite = function runTestSuite(target, pc) {
 		);
 	});
 
+	// test("non-string input", () => {
+	// 	assert.equal(pc.red(), "\x1b[31mundefined\x1b[39m");
+	// 	assert.equal(pc.red(""), "\x1b[31m\x1b[39m");
+	// 	assert.equal(pc.red(undefined), "\x1b[31mundefined\x1b[39m");
+	// 	assert.equal(pc.red(0), "\x1b[31m0\x1b[39m");
+	// 	assert.equal(pc.red(NaN), "\x1b[31mNaN\x1b[39m");
+	// 	assert.equal(pc.red(null), "\x1b[31mnull\x1b[39m");
+	// 	assert.equal(pc.red(true), "\x1b[31mtrue\x1b[39m");
+	// 	assert.equal(pc.red(false), "\x1b[31mfalse\x1b[39m");
+	// 	assert.equal(pc.red(Infinity), "\x1b[31mInfinity\x1b[39m");
+	// });
+
 	function test(name, fn) {
 		try {
 			fn();

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import { execSync } from "child_process";
+let { execSync } = require("child_process");
 
-const RUNS = 50;
+let RUNS = 50;
 
-const results = {};
+let results = {};
 
 for (let i = 0; i < RUNS; i++) {
-  const output = execSync("node ./benchmarks/loading-runner.cjs").toString();
+  let output = execSync("node ./benchmarks/loading-runner.js").toString();
   output
     .trim()
     .split("\n")
@@ -17,10 +17,10 @@ for (let i = 0; i < RUNS; i++) {
     });
 }
 
-for (const name in results) {
-  const prefix = name === "picocolors" ? "+ " : "  ";
-  const title = name.padEnd("kleur/colors  ".length);
-  const time = (Math.round((1000 * results[name]) / RUNS) / 1000)
+for (let name in results) {
+  let prefix = name === "picocolors" ? "+ " : "  ";
+  let title = name.padEnd("kleur/colors  ".length);
+  let time = (Math.round((1000 * results[name]) / RUNS) / 1000)
     .toString()
     .replace(/\.\d$/, "$&00")
     .replace(/\.\d\d$/, "$&0");
