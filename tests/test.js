@@ -128,9 +128,9 @@ test("close sequence replacement", () => {
 function test(name, fn) {
 	try {
 		fn();
-		console.log(pc.green("✓ " + target + ": " + name));
+		console.log(pc.green("✓ " + name));
 	} catch (error) {
-		console.log(pc.red("✗ " + target + ": " + name));
+		console.log(pc.red("✗ " + name));
 		throw error;
 	}
 }
