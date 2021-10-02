@@ -1,41 +1,41 @@
 name: Testing
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+	push:
+		branches: [ main ]
+	pull_request:
+		branches: [ main ]
 
 jobs:
-  modern:
-    name: Node v${{ matrix.node-version }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 16
-          - 14
-          - 12
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: node tests/test.js
-  legacy:
-    name: Node v${{ matrix.node-version }} (Legacy)
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 10
-          - 8
-          - 6
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: node tests/test.js
+	modern:
+		name: Node v${{ matrix.node-version }}
+		runs-on: ubuntu-latest
+		strategy:
+			matrix:
+				node-version:
+					- 16
+					- 14
+					- 12
+		steps:
+			- uses: actions/checkout@v2
+			- uses: actions/setup-node@v2
+				with:
+					node-version: ${{ matrix.node-version }}
+			- run: npm install
+			- run: node tests/test.js
+	legacy:
+		name: Node v${{ matrix.node-version }} (Legacy)
+		runs-on: ubuntu-latest
+		strategy:
+			matrix:
+				node-version:
+					- 10
+					- 8
+					- 6
+		steps:
+			- uses: actions/checkout@v2
+			- uses: actions/setup-node@v2
+				with:
+					node-version: ${{ matrix.node-version }}
+			- run: npm install
+			- run: node tests/test.js
