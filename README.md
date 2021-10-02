@@ -12,7 +12,7 @@ console.log(pc.green(`How are ${pc.italic(`you`)} doing?`));
 
 - Up to [2x faster and 2x smaller](#benchmarks) than alternatives
 - 3x faster and 10x smaller than `chalk`
-- [TypeScript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/) support
 - [`NO_COLOR`](https://no-color.org/) friendly
 - Node.js v6+ & browsers support
 - The same API, but faster, much faster
