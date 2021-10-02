@@ -1,28 +1,33 @@
-module.exports = {
-	isColorSupported: boolean,
-	reset: (input: string) => string,
-	bold: (input: string) => string,
-	dim: (input: string) => string,
-	italic: (input: string) => string,
-	underline: (input: string) => string,
-	inverse: (input: string) => string,
-	hidden: (input: string) => string,
-	strikethrough: (input: string) => string,
-	black: (input: string) => string,
-	red: (input: string) => string,
-	green: (input: string) => string,
-	yellow: (input: string) => string,
-	blue: (input: string) => string,
-	magenta: (input: string) => string,
-	cyan: (input: string) => string,
-	white: (input: string) => string,
-	gray: (input: string) => string,
-	bgBlack: (input: string) => string,
-	bgRed: (input: string) => string,
-	bgGreen: (input: string) => string,
-	bgYellow: (input: string) => string,
-	bgBlue: (input: string) => string,
-	bgMagenta: (input: string) => string,
-	bgCyan: (input: string) => string,
-	bgWhite: (input: string) => string,
-};
+type Formatter = (input: string | number | null | undefined) => string;
+
+declare interface Colors {
+	isColorSupported: boolean;
+	reset: Formatter;
+	bold: Formatter;
+	dim: Formatter;
+	italic: Formatter;
+	underline: Formatter;
+	inverse: Formatter;
+	hidden: Formatter;
+	strikethrough: Formatter;
+	black: Formatter;
+	red: Formatter;
+	green: Formatter;
+	yellow: Formatter;
+	blue: Formatter;
+	magenta: Formatter;
+	cyan: Formatter;
+	white: Formatter;
+	gray: Formatter;
+	bgBlack: Formatter;
+	bgRed: Formatter;
+	bgGreen: Formatter;
+	bgYellow: Formatter;
+	bgBlue: Formatter;
+	bgMagenta: Formatter;
+	bgCyan: Formatter;
+	bgWhite: Formatter;
+	createColors: (enabled: boolean) => Colors;
+}
+
+export = Colors;
