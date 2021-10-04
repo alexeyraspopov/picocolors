@@ -1,2 +1,4 @@
-let x=(v)=>v,f=false;
-export {f as isColorSupported,x as reset,x as bold,x as dim,x as italic,x as underline,x as inverse,x as hidden,x as strikethrough,x as black,x as red,x as green,x as yellow,x as blue,x as magenta,x as cyan,x as white,x as gray,x as bgBlack,x as bgRed,x as bgGreen,x as bgYellow,x as bgBlue,x as bgMagenta,x as bgCyan,x as bgWhite};
+var x=String;
+var create=function() {return {isColorSupported:false,reset:x,bold:x,dim:x,italic:x,underline:x,inverse:x,hidden:x,strikethrough:x,black:x,red:x,green:x,yellow:x,blue:x,magenta:x,cyan:x,white:x,gray:x,bgBlack:x,bgRed:x,bgGreen:x,bgYellow:x,bgBlue:x,bgMagenta:x,bgCyan:x,bgWhite:x}};
+module.exports=create();
+module.exports.createColors = create;

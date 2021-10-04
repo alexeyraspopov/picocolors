@@ -5,20 +5,19 @@
 A tinier and faster alternative to [nanocolors](https://github.com/ai/nanocolors). Andrey, are you even trying?
 
 ```javascript
-import { green, italic } from "picocolors";
+import pc from "picocolors";
 
-console.log(green(`How are ${italic(`you`)} doing?`));
+console.log(pc.green(`How are ${pc.italic(`you`)} doing?`));
 ```
 
 - Up to [2x faster and 2x smaller](#benchmarks) than alternatives
 - 3x faster and 10x smaller than `chalk`
-- [TypeScript](https://www.typescriptlang.org/) & [Flowtype](https://flow.org/) support
+- [TypeScript](https://www.typescriptlang.org/) support
 - [`NO_COLOR`](https://no-color.org/) friendly
 - Node.js v6+ & browsers support
 - The same API, but faster, much faster
 - No `String.prototype` modifications (anyone still doing it?)
 - No dependencies and the smallest `node_modules` footprint
-- Tree-shakeable (in case a Node.js package needs it?)
 
 ## Prior Art
 
@@ -69,13 +68,4 @@ colors × 233,138 ops/sec
 colorette × 657,896 ops/sec
 nanocolors × 660,817 ops/sec
 ansi-colors × 290,986 ops/sec
-```
-
-## Replacing nanocolors
-
-Just replace imports
-
-```diff
--import { green, italic } from 'nanocolors';
-+import { green, italic } from 'picocolors';
 ```

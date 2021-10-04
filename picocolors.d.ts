@@ -1,26 +1,32 @@
-export let isColorSupported: boolean;
-export function reset(input: string): string;
-export function bold(input: string): string;
-export function dim(input: string): string;
-export function italic(input: string): string;
-export function underline(input: string): string;
-export function inverse(input: string): string;
-export function hidden(input: string): string;
-export function strikethrough(input: string): string;
-export function black(input: string): string;
-export function red(input: string): string;
-export function green(input: string): string;
-export function yellow(input: string): string;
-export function blue(input: string): string;
-export function magenta(input: string): string;
-export function cyan(input: string): string;
-export function white(input: string): string;
-export function gray(input: string): string;
-export function bgBlack(input: string): string;
-export function bgRed(input: string): string;
-export function bgGreen(input: string): string;
-export function bgYellow(input: string): string;
-export function bgBlue(input: string): string;
-export function bgMagenta(input: string): string;
-export function bgCyan(input: string): string;
-export function bgWhite(input: string): string;
+export type Formatter = (input: string | number | null | undefined) => string;
+
+export interface Colors {
+	isColorSupported: boolean;
+	reset: Formatter;
+	bold: Formatter;
+	dim: Formatter;
+	italic: Formatter;
+	underline: Formatter;
+	inverse: Formatter;
+	hidden: Formatter;
+	strikethrough: Formatter;
+	black: Formatter;
+	red: Formatter;
+	green: Formatter;
+	yellow: Formatter;
+	blue: Formatter;
+	magenta: Formatter;
+	cyan: Formatter;
+	white: Formatter;
+	gray: Formatter;
+	bgBlack: Formatter;
+	bgRed: Formatter;
+	bgGreen: Formatter;
+	bgYellow: Formatter;
+	bgBlue: Formatter;
+	bgMagenta: Formatter;
+	bgCyan: Formatter;
+	bgWhite: Formatter;
+}
+
+export = Colors & { createColors: (enabled: boolean) => Colors };

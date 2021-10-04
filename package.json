@@ -1,26 +1,15 @@
 {
   "name": "picocolors",
   "version": "0.1.0",
-  "type": "module",
-  "main": "./picocolors.cjs",
-  "module": "./picocolors.js",
+  "main": "./picocolors.js",
   "types": "./picocolors.d.ts",
-  "exports": {
-    ".": {
-      "require": "./picocolors.cjs",
-      "import": "./picocolors.js",
-      "default": "./picocolors.js"
-    },
-    "./package.json": "./package.json"
-  },
   "browser": {
-    "./picocolors.js": "./picocolors.browser.js",
-    "./picocolors.cjs": "./picocolors.browser.cjs"
+    "./picocolors.js": "./picocolors.browser.js"
   },
   "sideEffects": false,
   "description": "The tiniest and the fastest coloring library ever",
   "scripts": {
-    "test": "node tests/test.js && node tests/test.cjs"
+    "test": "node tests/test.js"
   },
   "files": [
     "picocolors.*"
@@ -46,6 +35,8 @@
     "prettier": "^2.4.1"
   },
   "prettier": {
-    "printWidth": 100
+    "printWidth": 100,
+    "useTabs": true,
+    "tabWidth": 2
   }
 }

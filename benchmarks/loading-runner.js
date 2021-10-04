@@ -2,8 +2,8 @@ const { performance } = require("perf_hooks");
 
 let before;
 function showTime(name) {
-  let after = performance.now();
-  process.stdout.write(name + " " + (after - before) + "\n");
+	let after = performance.now();
+	process.stdout.write(name + " " + (after - before) + "\n");
 }
 
 before = performance.now();
@@ -35,5 +35,5 @@ let nanocolors = require("nanocolors");
 showTime("nanocolors");
 
 before = performance.now();
-let picocolors = require("../picocolors.cjs");
+let picocolors = require("../picocolors.js");
 showTime("picocolors");
