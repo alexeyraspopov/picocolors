@@ -1,6 +1,6 @@
-type Formatter = (input: string | number | null | undefined) => string;
+export type Formatter = (input: string | number | null | undefined) => string;
 
-declare interface Colors {
+export interface Colors {
 	isColorSupported: boolean;
 	reset: Formatter;
 	bold: Formatter;
@@ -27,7 +27,6 @@ declare interface Colors {
 	bgMagenta: Formatter;
 	bgCyan: Formatter;
 	bgWhite: Formatter;
-	createColors: (enabled: boolean) => Colors;
 }
 
-export = Colors;
+export = Colors & { createColors: (enabled: boolean) => Colors };
