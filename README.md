@@ -1,23 +1,33 @@
 # picocolors
 
-    npm install picocolors
-
-A tinier and faster alternative to [nanocolors](https://github.com/ai/nanocolors). Andrey, are you even trying?
+A tiny and fast Node.js library to ANSI colors to terminal output.
 
 ```javascript
 import pc from "picocolors";
 
-console.log(pc.green(`How are ${pc.italic(`you`)} doing?`));
+console.log(
+  pc.green(`How are ${pc.italic(`you`)} doing?`)
+);
 ```
 
-- Up to [2x faster and 2x smaller](#benchmarks) than alternatives
-- 3x faster and 10x smaller than `chalk`
-- [TypeScript](https://www.typescriptlang.org/) support
-- [`NO_COLOR`](https://no-color.org/) friendly
-- Node.js v6+ & browsers support
-- The same API, but faster, much faster
-- No `String.prototype` modifications (anyone still doing it?)
-- No dependencies and the smallest `node_modules` footprint
+* **No dependencies.** It takes **14 times** less space
+  in `node_modules` than chalk.
+* Loads **10 times** fasterand works **2 times** faster than chalk.
+* [TypeScript](https://www.typescriptlang.org/) support.
+* [`NO_COLOR`](https://no-color.org/) friendly.
+* Node.js v6+ & browsers support.
+
+## Motivation
+
+With `picocolors` we are trying to draw attention to the `node_modules` size
+problem and promote performance-first culture.
+
+Of course, color formatting library is a very small part of Node.js CLI tool.
+Changing it will not have a huge effect on overall performance.
+
+But we believe that our JS community have a bad culture of ignoring performance
+and `node_modules` size. For instance, `chalk`, the most popular simple
+color formatting library has **6 dependencies** and takes 100 kB space.
 
 ## Prior Art
 
@@ -28,6 +38,64 @@ Credits go to the following projects:
 - [Kleur](https://github.com/lukeed/kleur) by [@lukeed](https://github.com/lukeed)
 - [Colors.js](https://github.com/Marak/colors.js) by [@Marak](https://github.com/Marak)
 - [Chalk](https://github.com/chalk/chalk) by [@sindresorhus](https://github.com/sindresorhus)
+
+## Benchmarks
+
+The space in node_modules including sub-dependencies:
+
+```diff
+$ node ./benchmarks/size.js
+Data from packagephobia.com
+  chalk       101 kB
+  cli-color  1249 kB
+  ansi-colors  25 kB
+  kleur        21 kB
+  colorette    17 kB
+  nanocolors   16 kB
++ picocolors    7 kB
+```
+
+Library loading time:
+
+```diff
+$ node ./benchmarks/loading.js
+  chalk          6.760 ms
+  cli-color     37.949 ms
+  ansi-colors    1.790 ms
+  kleur          2.278 ms
+  kleur/colors   0.858 ms
+  colorette      2.724 ms
+  nanocolors     0.885 ms
++ picocolors     0.470 ms
+```
+
+Benchmark for simple use case:
+
+```diff
+$ node ./benchmarks/simple.js
+  chalk         17,544,513 ops/sec
+  cli-color        808,186 ops/sec
+  ansi-colors    3,798,290 ops/sec
+  kleur         17,209,612 ops/sec
+  kleur/colors  29,425,416 ops/sec
+  colorette     30,236,826 ops/sec
+  nanocolors    29,618,223 ops/sec
++ picocolors    29,514,102 ops/sec
+```
+
+Benchmark for complex use cases:
+
+```diff
+$ node ./benchmarks/complex.js
+  chalk            856,888 ops/sec
+  cli-color        109,678 ops/sec
+  ansi-colors      306,752 ops/sec
+  kleur            568,643 ops/sec
+  kleur/colors     984,151 ops/sec
+  colorette      1,337,991 ops/sec
+  nanocolors     1,088,193 ops/sec
++ picocolors     1,772,265 ops/sec
+```
 
 ## Usage
 
@@ -80,44 +148,3 @@ The library provides additional utilities to ensure the best results for the tas
 
   let { red, bgWhite } = pc.createColors(options.enableColors);
   ```
-
-## Benchmarks
-
-`nanocolors` [benchmark](https://github.com/ai/nanocolors/tree/main/test):
-
-```diff
-./test/size.js
-Data from packagephobia.com
-chalk         101 kB
-cli-color    1249 kB
-ansi-colors    25 kB
-kleur          21 kB
-colorette      16 kB
-nanocolors     16 kB
-+picocolors     8 kB
-```
-
-```diff
-$ ./test/complex-benchmark.js
-chalk          2,618,824 ops/sec
-cli-color        326,445 ops/sec
-ansi-colors    1,057,188 ops/sec
-kleur          2,543,659 ops/sec
-kleur/colors   2,841,679 ops/sec
-colorette      3,219,038 ops/sec
-nanocolors     3,672,600 ops/sec
-+picocolors    6,079,950 ops/sec
-```
-
-`colorette` [benchmark](https://github.com/jorgebucaran/colorette/tree/main/bench):
-
-```diff
-$ npm start
-+picocolors × 1,203,773 ops/sec
-chalk × 474,359 ops/sec
-kleur × 482,915 ops/sec
-colors × 233,138 ops/sec
-colorette × 657,896 ops/sec
-nanocolors × 660,817 ops/sec
-ansi-colors × 290,986 ops/sec
-```
