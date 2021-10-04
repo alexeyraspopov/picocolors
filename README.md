@@ -29,6 +29,58 @@ Credits go to the following projects:
 - [Colors.js](https://github.com/Marak/colors.js) by [@Marak](https://github.com/Marak)
 - [Chalk](https://github.com/chalk/chalk) by [@sindresorhus](https://github.com/sindresorhus)
 
+## Usage
+
+Picocolors provides an object which includes a variety of text coloring and formatting functions
+
+```javascript
+import pc from "picocolors";
+```
+
+The object includes following coloring functions: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`, `gray`.
+
+```javascript
+console.log(`I see a ${pc.red("red door")} and I want it painted ${pc.black("black")}`);
+```
+
+The object also includes following background color modifier functions: `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan`, `bgWhite`.
+
+```javascript
+console.log(
+  pc.bgBlack(
+    pc.white(`Tom appeared on the sidewalk with a bucket of whitewash and a long-handled brush.`)
+  )
+);
+```
+
+Besides colors, the object includes following formatting functions: `dim`, `bold`, `hidden`, `italic`, `underline`, `strikethrough`, `reset`, `inverse`.
+
+```javascript
+for (let task of tasks) {
+  console.log(`${pc.bold(task.name)} ${pc.dim(task.durationMs + "ms")}`);
+}
+```
+
+The library provides additional utilities to ensure the best results for the task:
+
+- `isColorSupported` — boolean, explicitly tells whether or not the colors or formatting appear on the screen
+
+  ```javascript
+  import pc from "picocolors";
+
+  if (pc.isColorSupported) {
+    console.log("Yay! This script can use colors and formatters");
+  }
+  ```
+
+- `createColors(enabled)` — a function that returns a new API object with manually defined color support configuration
+
+  ```javascript
+  import pc from "picocolors";
+
+  let { red, bgWhite } = pc.createColors(options.enableColors);
+  ```
+
 ## Benchmarks
 
 `nanocolors` [benchmark](https://github.com/ai/nanocolors/tree/main/test):
