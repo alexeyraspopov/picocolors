@@ -25,7 +25,7 @@ function replaceClose(string, close, replace, index) {
 	return !~nextIndex ? start + end : start + replaceClose(end, close, replace, nextIndex)
 }
 
-function createColors(enabled) {
+function createColors(enabled = isColorSupported) {
 	return {
 		isColorSupported: enabled,
 		reset: enabled ? (s) => `\x1b[0m${s}\x1b[0m` : String,
@@ -56,5 +56,5 @@ function createColors(enabled) {
 	}
 }
 
-module.exports = createColors(isColorSupported)
+module.exports = createColors()
 module.exports.createColors = createColors
