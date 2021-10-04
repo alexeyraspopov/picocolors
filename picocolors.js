@@ -9,7 +9,8 @@ let isColorSupported =
 		"CI" in process.env);
 
 function formatter(open, close, replace = open) {
-	return (string) => {
+	return (input) => {
+		let string = "" + input;
 		let index = string.indexOf(close, open.length);
 		return !~index
 			? open + string + close

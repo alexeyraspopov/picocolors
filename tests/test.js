@@ -125,6 +125,17 @@ test("close sequence replacement", () => {
 	);
 });
 
+test("non-string input", () => {
+	assert.equal(pc.red(), FMT.red[0] + "undefined" + FMT.red[1]);
+	assert.equal(pc.red(undefined), FMT.red[0] + "undefined" + FMT.red[1]);
+	assert.equal(pc.red(0), FMT.red[0] + "0" + FMT.red[1]);
+	assert.equal(pc.red(NaN), FMT.red[0] + "NaN" + FMT.red[1]);
+	assert.equal(pc.red(null), FMT.red[0] + "null" + FMT.red[1]);
+	assert.equal(pc.red(true), FMT.red[0] + "true" + FMT.red[1]);
+	assert.equal(pc.red(false), FMT.red[0] + "false" + FMT.red[1]);
+	assert.equal(pc.red(Infinity), FMT.red[0] + "Infinity" + FMT.red[1]);
+});
+
 function test(name, fn) {
 	try {
 		fn();
