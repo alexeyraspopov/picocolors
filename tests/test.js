@@ -1,5 +1,5 @@
-let pc = require("../picocolors.js");
-let assert = require("assert");
+let pc = require("../picocolors.js")
+let assert = require("assert")
 
 const FMT = {
 	reset: ["\x1b[0m", "\x1b[0m"],
@@ -27,14 +27,14 @@ const FMT = {
 	bgMagenta: ["\x1b[45m", "\x1b[49m"],
 	bgCyan: ["\x1b[46m", "\x1b[49m"],
 	bgWhite: ["\x1b[47m", "\x1b[49m"],
-};
+}
 
 test("color matching", () => {
 	for (let format in FMT) {
-		assert.equal(pc[format]("string"), FMT[format][0] + "string" + FMT[format][1]);
-		console.log(pc[format]("testing: " + format));
+		assert.equal(pc[format]("string"), FMT[format][0] + "string" + FMT[format][1])
+		console.log(pc[format]("testing: " + format))
 	}
-});
+})
 
 test("format/color nesting", () => {
 	assert.equal(
@@ -51,15 +51,15 @@ test("format/color nesting", () => {
 			FMT.red[1] +
 			" BOLD" +
 			FMT.bold[1]
-	);
-});
+	)
+})
 
 test("proper wrapping", () => {
 	assert.equal(
 		pc.red(pc.bold("==TEST==")),
 		FMT.red[0] + FMT.bold[0] + "==TEST==" + FMT.bold[1] + FMT.red[1]
-	);
-});
+	)
+})
 
 test("complex case of wrapping", () => {
 	assert.equal(
@@ -73,7 +73,7 @@ test("complex case of wrapping", () => {
 			FMT.bgRed[1] +
 			FMT.yellow[1] +
 			FMT.bold[1]
-	);
+	)
 
 	assert.equal(
 		pc.cyan(pc.bold(pc.underline("==TEST=="))),
@@ -84,14 +84,14 @@ test("complex case of wrapping", () => {
 			FMT.underline[1] +
 			FMT.bold[1] +
 			FMT.cyan[1]
-	);
-});
+	)
+})
 
 test("close sequence replacement", () => {
 	assert.equal(
 		pc.red(`foo ${pc.yellow("bar")} baz`),
 		FMT.red[0] + "foo " + FMT.yellow[0] + "bar" + FMT.red[0] + " baz" + FMT.red[1]
-	);
+	)
 
 	assert.equal(
 		pc.bold(`foo ${pc.red(pc.dim("bar"))} baz`),
@@ -105,7 +105,7 @@ test("close sequence replacement", () => {
 			FMT.red[1] +
 			" baz" +
 			FMT.bold[1]
-	);
+	)
 
 	assert.equal(
 		pc.yellow(`foo ${pc.red(pc.bold("red"))} bar ${pc.cyan("cyan")} baz`),
@@ -122,26 +122,26 @@ test("close sequence replacement", () => {
 			FMT.yellow[0] +
 			" baz" +
 			FMT.yellow[1]
-	);
-});
+	)
+})
 
 test("non-string input", () => {
-	assert.equal(pc.red(), FMT.red[0] + "undefined" + FMT.red[1]);
-	assert.equal(pc.red(undefined), FMT.red[0] + "undefined" + FMT.red[1]);
-	assert.equal(pc.red(0), FMT.red[0] + "0" + FMT.red[1]);
-	assert.equal(pc.red(NaN), FMT.red[0] + "NaN" + FMT.red[1]);
-	assert.equal(pc.red(null), FMT.red[0] + "null" + FMT.red[1]);
-	assert.equal(pc.red(true), FMT.red[0] + "true" + FMT.red[1]);
-	assert.equal(pc.red(false), FMT.red[0] + "false" + FMT.red[1]);
-	assert.equal(pc.red(Infinity), FMT.red[0] + "Infinity" + FMT.red[1]);
-});
+	assert.equal(pc.red(), FMT.red[0] + "undefined" + FMT.red[1])
+	assert.equal(pc.red(undefined), FMT.red[0] + "undefined" + FMT.red[1])
+	assert.equal(pc.red(0), FMT.red[0] + "0" + FMT.red[1])
+	assert.equal(pc.red(NaN), FMT.red[0] + "NaN" + FMT.red[1])
+	assert.equal(pc.red(null), FMT.red[0] + "null" + FMT.red[1])
+	assert.equal(pc.red(true), FMT.red[0] + "true" + FMT.red[1])
+	assert.equal(pc.red(false), FMT.red[0] + "false" + FMT.red[1])
+	assert.equal(pc.red(Infinity), FMT.red[0] + "Infinity" + FMT.red[1])
+})
 
 function test(name, fn) {
 	try {
-		fn();
-		console.log(pc.green("✓ " + name));
+		fn()
+		console.log(pc.green("✓ " + name))
 	} catch (error) {
-		console.log(pc.red("✗ " + name));
-		throw error;
+		console.log(pc.red("✗ " + name))
+		throw error
 	}
 }
