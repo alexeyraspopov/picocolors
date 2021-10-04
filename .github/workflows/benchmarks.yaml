@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 16
       - run: npm install
+      - name: Ensure color support detection
+        run: node tests/environments.js
       - name: Simple API calls
         run: node benchmarks/simple.js
       - name: Complex formatting expression
