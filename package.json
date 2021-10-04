@@ -12,7 +12,8 @@
     "test": "node tests/test.js"
   },
   "files": [
-    "picocolors.*"
+    "picocolors.*",
+    "types.ts"
   ],
   "keywords": [
     "terminal",
