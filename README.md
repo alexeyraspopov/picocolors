@@ -148,3 +148,26 @@ The library provides additional utilities to ensure the best results for the tas
 
   let { red, bgWhite } = pc.createColors(options.enableColors);
   ```
+
+## Replacing `chalk`
+
+1. Replace import and use named exports:
+
+   ```diff
+   - import chalk from 'chalk'
+   + import pico from 'picocolors'
+   ```
+
+2. Replace variable:
+
+   ```diff
+   - chalk.red(text)
+   + pico.red(text)
+   ```
+
+3. Replace chains to nested calls:
+
+   ```diff
+   - chalk.red.bold(text)
+   + pico.red(pico.bold(text))
+   ```
