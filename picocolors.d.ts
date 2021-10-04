@@ -1,6 +1,6 @@
-export type Formatter = (input: string | number | null | undefined) => string
+type Formatter = (input: string | number | null | undefined) => string
 
-export interface Colors {
+interface Colors {
 	isColorSupported: boolean
 	reset: Formatter
 	bold: Formatter
@@ -29,4 +29,6 @@ export interface Colors {
 	bgWhite: Formatter
 }
 
-export = Colors & { createColors: (enabled: boolean) => Colors }
+declare const picocolors: Colors & { createColors: (enabled: boolean) => Colors }
+
+export = picocolors
