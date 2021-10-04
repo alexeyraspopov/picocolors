@@ -13,16 +13,17 @@ let formatter =
 	(input) => {
 		let string = "" + input
 		let index = string.indexOf(close, open.length)
-		return !~index
-			? open + string + close
-			: open + replaceClose(string, close, replace, index) + close
+		return open + (~index ? replaceClose(string, close, replace, index) : string) + close
 	}
 
 let replaceClose = (string, close, replace, index) => {
-	let start = string.substring(0, index) + replace
 	let end = string.substring(index + close.length)
 	let nextIndex = end.indexOf(close)
-	return !~nextIndex ? start + end : start + replaceClose(end, close, replace, nextIndex)
+	return (
+		string.substring(0, index) +
+		replace +
+		(~nextIndex ? replaceClose(end, close, replace, nextIndex) : end)
+	)
 }
 
 let createColors = (enabled = isColorSupported) => ({
