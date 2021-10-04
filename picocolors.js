@@ -1,4 +1,4 @@
-let tty = require("tty");
+let tty = require("tty")
 
 let isColorSupported =
 	!("NO_COLOR" in process.env || process.argv.includes("--no-color")) &&
@@ -6,23 +6,23 @@ let isColorSupported =
 		process.argv.includes("--color") ||
 		process.platform === "win32" ||
 		(tty.isatty(1) && process.env.TERM !== "dumb") ||
-		"CI" in process.env);
+		"CI" in process.env)
 
 function formatter(open, close, replace = open) {
 	return (input) => {
-		let string = "" + input;
-		let index = string.indexOf(close, open.length);
+		let string = "" + input
+		let index = string.indexOf(close, open.length)
 		return !~index
 			? open + string + close
-			: open + replaceClose(string, close, replace, index) + close;
-	};
+			: open + replaceClose(string, close, replace, index) + close
+	}
 }
 
 function replaceClose(string, close, replace, index) {
-	let start = string.substring(0, index) + replace;
-	let end = string.substring(index + close.length);
-	let nextIndex = end.indexOf(close);
-	return !~nextIndex ? start + end : start + replaceClose(end, close, replace, nextIndex);
+	let start = string.substring(0, index) + replace
+	let end = string.substring(index + close.length)
+	let nextIndex = end.indexOf(close)
+	return !~nextIndex ? start + end : start + replaceClose(end, close, replace, nextIndex)
 }
 
 function createColors(enabled) {
@@ -53,8 +53,8 @@ function createColors(enabled) {
 		bgMagenta: enabled ? formatter("\x1b[45m", "\x1b[49m") : String,
 		bgCyan: enabled ? formatter("\x1b[46m", "\x1b[49m") : String,
 		bgWhite: enabled ? formatter("\x1b[47m", "\x1b[49m") : String,
-	};
+	}
 }
 
-module.exports = createColors(isColorSupported);
-module.exports.createColors = createColors;
+module.exports = createColors(isColorSupported)
+module.exports.createColors = createColors

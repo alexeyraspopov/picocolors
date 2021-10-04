@@ -38,7 +38,8 @@
   "prettier": {
     "printWidth": 100,
     "useTabs": true,
-    "tabWidth": 2
+    "tabWidth": 2,
+    "semi": false
   },
   "clean-publish": {
     "cleanDocs": true
