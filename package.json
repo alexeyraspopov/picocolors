@@ -28,6 +28,7 @@
     "ansi-colors": "^4.1.1",
     "benchmark": "^2.1.4",
     "chalk": "^4.1.2",
+    "clean-publish": "^3.0.3",
     "cli-color": "^2.0.0",
     "colorette": "^2.0.12",
     "kleur": "^4.1.4",
@@ -38,5 +39,8 @@
     "printWidth": 100,
     "useTabs": true,
     "tabWidth": 2
+  },
+  "clean-publish": {
+    "cleanDocs": true
   }
 }
