@@ -53,7 +53,7 @@ let createColors = (enabled = isColorSupported) => ({
 	bgMagenta: enabled ? formatter("\x1b[45m", "\x1b[49m") : String,
 	bgCyan: enabled ? formatter("\x1b[46m", "\x1b[49m") : String,
 	bgWhite: enabled ? formatter("\x1b[47m", "\x1b[49m") : String,
-	createColors,
 })
 
 module.exports = createColors()
+module.exports.createColors = createColors
