@@ -13,6 +13,7 @@ console.log(
 * **No dependencies.** It takes **14 times** less space
   in `node_modules` than chalk.
 * Loads **10 times** faster and works **2 times** faster than chalk.
+* Used by popular tools like PostCSS, SVGO, Stylelint, and Browserslist.
 * [TypeScript](https://www.typescriptlang.org/) support.
 * [`NO_COLOR`](https://no-color.org/) friendly.
 * Node.js v6+ & browsers support. Support both CJS and ESM projects.
