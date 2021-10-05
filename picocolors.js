@@ -10,7 +10,7 @@ let isColorSupported =
 
 let formatter =
 	(open, close, replace = open) =>
-	(input) => {
+	input => {
 		let string = "" + input
 		let index = string.indexOf(close, open.length)
 		return ~index
@@ -27,7 +27,7 @@ let replaceClose = (string, close, replace, index) => {
 
 let createColors = (enabled = isColorSupported) => ({
 	isColorSupported: enabled,
-	reset: enabled ? (s) => `\x1b[0m${s}\x1b[0m` : String,
+	reset: enabled ? s => `\x1b[0m${s}\x1b[0m` : String,
 	bold: enabled ? formatter("\x1b[1m", "\x1b[22m", "\x1b[22m\x1b[1m") : String,
 	dim: enabled ? formatter("\x1b[2m", "\x1b[22m", "\x1b[22m\x1b[2m") : String,
 	italic: enabled ? formatter("\x1b[3m", "\x1b[23m") : String,

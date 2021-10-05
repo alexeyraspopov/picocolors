@@ -5,10 +5,10 @@ let { get } = require("https")
 let { bold, gray } = require("../picocolors.js")
 
 async function getJSON(url) {
-	return new Promise((resolve) => {
-		get(url, (res) => {
+	return new Promise(resolve => {
+		get(url, res => {
 			let text = ""
-			res.on("data", (chunk) => {
+			res.on("data", chunk => {
 				text += chunk
 			})
 			res.on("end", () => {

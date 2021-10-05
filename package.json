@@ -40,7 +40,8 @@
     "printWidth": 100,
     "useTabs": true,
     "tabWidth": 2,
-    "semi": false
+    "semi": false,
+    "arrowParens": "avoid"
   },
   "clean-publish": {
     "cleanDocs": true

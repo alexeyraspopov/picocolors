@@ -11,7 +11,7 @@ for (let i = 0; i < RUNS; i++) {
 	output
 		.trim()
 		.split("\n")
-		.forEach((line) => {
+		.forEach(line => {
 			let [name, result] = line.split(" ")
 			results[name] = (results[name] || 0) + parseFloat(result)
 		})
