@@ -1,13 +1,12 @@
 let tty = require("tty")
 
 let isColorSupported =
-	!process.env.NO_COLOR &&
-	!process.argv.includes("--no-color") &&
-	(!!process.env.FORCE_COLOR ||
+	!("NO_COLOR" in process.env || process.argv.includes("--no-color")) &&
+	("FORCE_COLOR" in process.env ||
 		process.argv.includes("--color") ||
 		process.platform === "win32" ||
 		(tty.isatty(1) && process.env.TERM !== "dumb") ||
-		!!process.env.CI)
+		"CI" in process.env)
 
 let formatter =
 	(open, close, replace = open) =>
