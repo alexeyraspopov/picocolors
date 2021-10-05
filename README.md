@@ -1,13 +1,13 @@
 # picocolors
 
-A tiny and fast Node.js library to ANSI colors to terminal output.
+The smallest and fastest Node.js library to ANSI colors to terminal output.
 
 ```javascript
-import pc from "picocolors";
+import pc from "picocolors"
 
 console.log(
   pc.green(`How are ${pc.italic(`you`)} doing?`)
-);
+)
 ```
 
 * **No dependencies.** It takes **14 times** less space
@@ -21,13 +21,6 @@ console.log(
 
 With `picocolors` we are trying to draw attention to the `node_modules` size
 problem and promote performance-first culture.
-
-Of course, color formatting library is a very small part of Node.js CLI tool.
-Changing it will not have a huge effect on overall performance.
-
-But we believe that our JS community have a bad culture of ignoring performance
-and `node_modules` size. For instance, `chalk`, the most popular simple
-color formatting library has **6 dependencies** and takes 100 kB space.
 
 ## Prior Art
 
@@ -151,7 +144,7 @@ The library provides additional utilities to ensure the best results for the tas
 
 ## Replacing `chalk`
 
-1. Replace import and use named exports:
+1. Replace package name in import:
 
    ```diff
    - import chalk from 'chalk'
