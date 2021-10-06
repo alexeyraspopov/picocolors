@@ -1,6 +1,6 @@
 # picocolors
 
-The smallest and fastest Node.js library to ANSI colors to terminal output.
+The tiniest and the fastest library for terminal output formatting with ANSI colors.
 
 ```javascript
 import pc from "picocolors"
@@ -10,13 +10,12 @@ console.log(
 )
 ```
 
-* **No dependencies.** It takes **14 times** less space
-  in `node_modules` than chalk.
-* Loads **10 times** faster and works **2 times** faster than chalk.
+* **No dependencies.**
+* It **14 times** smaller and **2 times** faster than chalk.
 * Used by popular tools like PostCSS, SVGO, Stylelint, and Browserslist.
-* [TypeScript](https://www.typescriptlang.org/) support.
-* [`NO_COLOR`](https://no-color.org/) friendly.
 * Node.js v6+ & browsers support. Support both CJS and ESM projects.
+* TypeScript type declarations included.
+* [`NO_COLOR`](https://no-color.org/) friendly.
 
 ## Motivation
 
