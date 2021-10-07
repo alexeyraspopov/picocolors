@@ -164,3 +164,6 @@ The library provides additional utilities to ensure the best results for the tas
    - chalk.red.bold(text)
    + pico.red(pico.bold(text))
    ```
+
+4. You can use [`colorize-template`](https://github.com/usmanyunusov/colorize-template)
+   to replace chalk’s tagged template literal.
