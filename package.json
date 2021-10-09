@@ -13,7 +13,7 @@
     "build": "terser --compress --mangle --output picocolors.min.js -- picocolors.js & terser --compress --mangle --output picocolors.browser.min.js -- picocolors.browser.js"
   },
   "simple-git-hooks": {
-	  "pre-commit": "npm run build"
+    "pre-commit": "npm run build"
   },
   "files": [
     "picocolors.min.js",
