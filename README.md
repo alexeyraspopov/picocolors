@@ -167,3 +167,11 @@ The library provides additional utilities to ensure the best results for the tas
 
 4. You can use [`colorize-template`](https://github.com/usmanyunusov/colorize-template)
    to replace chalk’s tagged template literal.
+   
+   ```diff
+   + import { createColorize } from 'colorize-template'
+   
+   + let colorize = createColorize(pico)
+   - chalk.red.bold`full {yellow ${"text"}}`
+   + colorize`{red.bold full {yellow ${"text"}}}`
+   ```
