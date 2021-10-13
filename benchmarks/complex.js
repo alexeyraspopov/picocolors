@@ -122,13 +122,13 @@ suite
 					picocolors.yellow(`${++index}`)
 			)
 	})
-	.on("cycle", (event) => {
+	.on("cycle", event => {
 		let prefix = event.target.name === "picocolors" ? "+ " : "  "
 		let name = event.target.name.padEnd("kleur/colors  ".length)
 		let hz = formatNumber(event.target.hz.toFixed(0)).padStart(10)
 		process.stdout.write(`${prefix}${name}${picocolors.bold(hz)} ops/sec\n`)
 	})
-	.on("error", (event) => {
+	.on("error", event => {
 		process.stderr.write(picocolors.red(event.target.error.toString()) + "\n")
 		process.exit(1)
 	})
