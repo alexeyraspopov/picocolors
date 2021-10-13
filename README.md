@@ -10,12 +10,12 @@ console.log(
 )
 ```
 
-* **No dependencies.**
-* It **14 times** smaller and **2 times** faster than chalk.
-* Used by popular tools like PostCSS, SVGO, Stylelint, and Browserslist.
-* Node.js v6+ & browsers support. Support both CJS and ESM projects.
-* TypeScript type declarations included.
-* [`NO_COLOR`](https://no-color.org/) friendly.
+- **No dependencies.**
+- **14 times** smaller and **2 times** faster than chalk.
+- Used by popular tools like PostCSS, SVGO, Stylelint, and Browserslist.
+- Node.js v6+ & browsers support. Support for both CJS and ESM projects.
+- TypeScript type declarations included.
+- [`NO_COLOR`](https://no-color.org/) friendly.
 
 ## Motivation
 
@@ -95,13 +95,13 @@ $ node ./benchmarks/complex.js
 Picocolors provides an object which includes a variety of text coloring and formatting functions
 
 ```javascript
-import pc from "picocolors";
+import pc from "picocolors"
 ```
 
 The object includes following coloring functions: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`, `gray`.
 
 ```javascript
-console.log(`I see a ${pc.red("red door")} and I want it painted ${pc.black("black")}`);
+console.log(`I see a ${pc.red("red door")} and I want it painted ${pc.black("black")}`)
 ```
 
 The object also includes following background color modifier functions: `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan`, `bgWhite`.
@@ -111,14 +111,14 @@ console.log(
   pc.bgBlack(
     pc.white(`Tom appeared on the sidewalk with a bucket of whitewash and a long-handled brush.`)
   )
-);
+)
 ```
 
 Besides colors, the object includes following formatting functions: `dim`, `bold`, `hidden`, `italic`, `underline`, `strikethrough`, `reset`, `inverse`.
 
 ```javascript
 for (let task of tasks) {
-  console.log(`${pc.bold(task.name)} ${pc.dim(task.durationMs + "ms")}`);
+  console.log(`${pc.bold(task.name)} ${pc.dim(task.durationMs + "ms")}`)
 }
 ```
 
@@ -127,19 +127,19 @@ The library provides additional utilities to ensure the best results for the tas
 - `isColorSupported` — boolean, explicitly tells whether or not the colors or formatting appear on the screen
 
   ```javascript
-  import pc from "picocolors";
+  import pc from "picocolors"
 
   if (pc.isColorSupported) {
-    console.log("Yay! This script can use colors and formatters");
+    console.log("Yay! This script can use colors and formatters")
   }
   ```
 
 - `createColors(enabled)` — a function that returns a new API object with manually defined color support configuration
 
   ```javascript
-  import pc from "picocolors";
+  import pc from "picocolors"
 
-  let { red, bgWhite } = pc.createColors(options.enableColors);
+  let { red, bgWhite } = pc.createColors(options.enableColors)
   ```
 
 ## Replacing `chalk`
@@ -167,10 +167,10 @@ The library provides additional utilities to ensure the best results for the tas
 
 4. You can use [`colorize-template`](https://github.com/usmanyunusov/colorize-template)
    to replace chalk’s tagged template literal.
-   
+
    ```diff
    + import { createColorize } from 'colorize-template'
-   
+
    + let colorize = createColorize(pico)
    - chalk.red.bold`full {yellow ${"text"}}`
    + colorize`{red.bold full {yellow ${"text"}}}`

@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.0.0](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.0.0)
+
+- Removed several code elements to reduce the package size ([#31](https://github.com/alexeyraspopov/picocolors/pull/31))
+- Fixed optional flag for `createColors()` in TypeScript typings ([#34](https://github.com/alexeyraspopov/picocolors/pull/34))
+
 ## [v0.2.1](https://github.com/alexeyraspopov/picocolors/releases/tag/v0.2.1)
 
 - Removed semicolons to reduce the package size ([#28](https://github.com/alexeyraspopov/picocolors/pull/28))
