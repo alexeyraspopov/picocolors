@@ -52,42 +52,42 @@ Library loading time:
 
 ```diff
 $ node ./benchmarks/loading.js
-  chalk          6.760 ms
-  cli-color     37.949 ms
-  ansi-colors    1.790 ms
-  kleur          2.278 ms
-  kleur/colors   0.858 ms
-  colorette      2.724 ms
-  nanocolors     0.885 ms
-+ picocolors     0.470 ms
+  chalk          6.167 ms
+  cli-color     31.431 ms
+  ansi-colors    1.585 ms
+  kleur          2.008 ms
+  kleur/colors   0.773 ms
+  colorette      2.476 ms
+  nanocolors     0.833 ms
++ picocolors     0.466 ms
 ```
 
 Benchmark for simple use case:
 
 ```diff
 $ node ./benchmarks/simple.js
-  chalk         17,544,513 ops/sec
-  cli-color        808,186 ops/sec
-  ansi-colors    3,798,290 ops/sec
-  kleur         17,209,612 ops/sec
-  kleur/colors  29,425,416 ops/sec
-  colorette     30,236,826 ops/sec
-  nanocolors    29,618,223 ops/sec
-+ picocolors    29,514,102 ops/sec
+  chalk         24,066,342 ops/sec
+  cli-color        938,700 ops/sec
+  ansi-colors    4,532,542 ops/sec
+  kleur         20,343,122 ops/sec
+  kleur/colors  35,415,770 ops/sec
+  colorette     34,244,834 ops/sec
+  nanocolors    33,443,265 ops/sec
++ picocolors    33,271,645 ops/sec
 ```
 
 Benchmark for complex use cases:
 
 ```diff
 $ node ./benchmarks/complex.js
-  chalk            856,888 ops/sec
-  cli-color        109,678 ops/sec
-  ansi-colors      306,752 ops/sec
-  kleur            568,643 ops/sec
-  kleur/colors     984,151 ops/sec
-  colorette      1,337,991 ops/sec
-  nanocolors     1,088,193 ops/sec
-+ picocolors     1,772,265 ops/sec
+  chalk            969,915 ops/sec
+  cli-color        131,639 ops/sec
+  ansi-colors      342,250 ops/sec
+  kleur            611,880 ops/sec
+  kleur/colors   1,129,526 ops/sec
+  colorette      1,747,277 ops/sec
+  nanocolors     1,251,312 ops/sec
++ picocolors     2,024,086 ops/sec
 ```
 
 ## Usage
