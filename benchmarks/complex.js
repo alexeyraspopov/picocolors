@@ -29,20 +29,20 @@ let index = 1e8
 suite
 	.add("chalk", () => {
 		out =
-			chalk.red('.') +
-			chalk.yellow('.') +
-			chalk.green('.') +
-			chalk.bgRed.black(" ERROR ") +
+			chalk.red(".") +
+			chalk.yellow(".") +
+			chalk.green(".") +
+			chalk.bgRed(chalk.black(" ERROR ")) +
 			chalk.red(
 				" Add plugin " + chalk.yellow("name") + " to use time limit with " + chalk.yellow(++index)
 			)
 	})
 	.add("cli-color", () => {
 		out =
-		cliColor.red('.') +
-		cliColor.yellow('.') +
-		cliColor.green('.') +
-			cliColor.bgRed.black(" ERROR ") +
+			cliColor.red(".") +
+			cliColor.yellow(".") +
+			cliColor.green(".") +
+			cliColor.bgRed(cliColor.black(" ERROR ")) +
 			cliColor.red(
 				" Add plugin " +
 					cliColor.yellow("name") +
@@ -52,29 +52,29 @@ suite
 	})
 	.add("ansi-colors", () => {
 		out =
-		ansi.red('.') +
-		ansi.yellow('.') +
-		ansi.green('.') +
-			ansi.bgRed.black(" ERROR ") +
+			ansi.red(".") +
+			ansi.yellow(".") +
+			ansi.green(".") +
+			ansi.bgRed(ansi.black(" ERROR ")) +
 			ansi.red(
 				" Add plugin " + ansi.yellow("name") + " to use time limit with " + ansi.yellow(++index)
 			)
 	})
 	.add("kleur", () => {
 		out =
-		kleur.red('.') +
-		kleur.yellow('.') +
-		kleur.green('.') +
-			kleur.bgRed().black(" ERROR ") +
+			kleur.red(".") +
+			kleur.yellow(".") +
+			kleur.green(".") +
+			kleur.bgRed(kleur.black(" ERROR ")) +
 			kleur.red(
 				" Add plugin " + kleur.yellow("name") + " to use time limit with " + kleur.yellow(++index)
 			)
 	})
 	.add("kleur/colors", () => {
 		out =
-		kleurColors.red('.') +
-		kleurColors.yellow('.') +
-		kleurColors.green('.') +
+			kleurColors.red(".") +
+			kleurColors.yellow(".") +
+			kleurColors.green(".") +
 			kleurColors.bgRed(kleurColors.black(" ERROR ")) +
 			kleurColors.red(
 				" Add plugin " +
@@ -85,9 +85,9 @@ suite
 	})
 	.add("colorette", () => {
 		out =
-		colorette.red('.') +
-		colorette.yellow('.') +
-		colorette.green('.') +
+			colorette.red(".") +
+			colorette.yellow(".") +
+			colorette.green(".") +
 			colorette.bgRed(colorette.black(" ERROR ")) +
 			colorette.red(
 				" Add plugin " +
@@ -98,9 +98,9 @@ suite
 	})
 	.add("nanocolors", () => {
 		out =
-		nanocolors.red('.') +
-		nanocolors.yellow('.') +
-		nanocolors.green('.') +
+			nanocolors.red(".") +
+			nanocolors.yellow(".") +
+			nanocolors.green(".") +
 			nanocolors.bgRed(nanocolors.black(" ERROR ")) +
 			nanocolors.red(
 				" Add plugin " +
@@ -111,9 +111,9 @@ suite
 	})
 	.add("picocolors", () => {
 		out =
-		picocolors.red('.') +
-		picocolors.yellow('.') +
-		picocolors.green('.') +
+			picocolors.red(".") +
+			picocolors.yellow(".") +
+			picocolors.green(".") +
 			picocolors.bgRed(picocolors.black(" ERROR ")) +
 			picocolors.red(
 				" Add plugin " +
