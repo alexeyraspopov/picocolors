@@ -1,7 +1,7 @@
 let tty = require("tty")
 
 let isColorSupported =
-	!("NO_COLOR" in process.env || process.argv.includes("--no-color")) &&
+	!("NO_COLOR" in process.env || process.argv.includes("--no-color") || process.argv.includes("--no-colors")) &&
 	("FORCE_COLOR" in process.env ||
 		process.argv.includes("--color") ||
 		process.platform === "win32" ||

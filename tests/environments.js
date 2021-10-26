@@ -34,6 +34,12 @@ test("arg --no-color", () => {
 	assert.equal(pc.red("text"), pc.createColors(false).red("text"))
 })
 
+test("arg --no-colors", () => {
+	let pc = initModuleEnv({ env: { FORCE_COLOR: "1" }, argv: ["--no-colors"] })
+	assert.equal(pc.isColorSupported, false)
+	assert.equal(pc.red("text"), pc.createColors(false).red("text"))
+})
+
 test("no term", () => {
 	let pc = initModuleEnv({ env: { TERM: "dumb" } })
 	assert.equal(pc.isColorSupported, false)
