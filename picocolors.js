@@ -6,7 +6,7 @@ let isColorSupported =
 		process.argv.includes("--color") ||
 		process.platform === "win32" ||
 		(tty.isatty(1) && process.env.TERM !== "dumb") ||
-		"CI" in process.env)
+		(tty.isatty(1) && "CI" in process.env))
 
 let formatter =
 	(open, close, replace = open) =>
