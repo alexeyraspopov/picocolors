@@ -2,9 +2,9 @@ name: Benchmarks
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   FORCE_COLOR: 3
