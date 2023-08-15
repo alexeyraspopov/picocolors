@@ -10,6 +10,7 @@ const FMT = {
 	inverse: ["\x1b[7m", "\x1b[27m"],
 	hidden: ["\x1b[8m", "\x1b[28m"],
 	strikethrough: ["\x1b[9m", "\x1b[29m"],
+
 	black: ["\x1b[30m", "\x1b[39m"],
 	red: ["\x1b[31m", "\x1b[39m"],
 	green: ["\x1b[32m", "\x1b[39m"],
@@ -19,6 +20,7 @@ const FMT = {
 	cyan: ["\x1b[36m", "\x1b[39m"],
 	white: ["\x1b[37m", "\x1b[39m"],
 	gray: ["\x1b[90m", "\x1b[39m"],
+
 	bgBlack: ["\x1b[40m", "\x1b[49m"],
 	bgRed: ["\x1b[41m", "\x1b[49m"],
 	bgGreen: ["\x1b[42m", "\x1b[49m"],
@@ -27,6 +29,24 @@ const FMT = {
 	bgMagenta: ["\x1b[45m", "\x1b[49m"],
 	bgCyan: ["\x1b[46m", "\x1b[49m"],
 	bgWhite: ["\x1b[47m", "\x1b[49m"],
+
+	blackBright: ["\x1b[90m", "\x1b[39m"],
+  redBright: ["\x1b[91m", "\x1b[39m"],
+  greenBright: ["\x1b[92m", "\x1b[39m"],
+  yellowBright: ["\x1b[93m", "\x1b[39m"],
+  blueBright: ["\x1b[94m", "\x1b[39m"],
+  magentaBright: ["\x1b[95m", "\x1b[39m"],
+  cyanBright: ["\x1b[96m", "\x1b[39m"],
+  whiteBright: ["\x1b[97m", "\x1b[39m"],
+
+  bgBlackBright: ["\x1b[100m","\x1b[49m"],
+  bgRedBright: ["\x1b[101m","\x1b[49m"],
+  bgGreenBright: ["\x1b[102m","\x1b[49m"],
+  bgYellowBright: ["\x1b[103m","\x1b[49m"],
+  bgBlueBright: ["\x1b[104m","\x1b[49m"],
+  bgMagentaBright: ["\x1b[105m","\x1b[49m"],
+  bgCyanBright: ["\x1b[106m","\x1b[49m"],
+  bgWhiteBright: ["\x1b[107m","\x1b[49m"],
 }
 
 test("color matching", () => {

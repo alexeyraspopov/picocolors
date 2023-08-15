@@ -41,6 +41,7 @@ let createColors = (enabled = isColorSupported) => {
 		inverse: init("\x1b[7m", "\x1b[27m"),
 		hidden: init("\x1b[8m", "\x1b[28m"),
 		strikethrough: init("\x1b[9m", "\x1b[29m"),
+
 		black: init("\x1b[30m", "\x1b[39m"),
 		red: init("\x1b[31m", "\x1b[39m"),
 		green: init("\x1b[32m", "\x1b[39m"),
@@ -50,6 +51,7 @@ let createColors = (enabled = isColorSupported) => {
 		cyan: init("\x1b[36m", "\x1b[39m"),
 		white: init("\x1b[37m", "\x1b[39m"),
 		gray: init("\x1b[90m", "\x1b[39m"),
+
 		bgBlack: init("\x1b[40m", "\x1b[49m"),
 		bgRed: init("\x1b[41m", "\x1b[49m"),
 		bgGreen: init("\x1b[42m", "\x1b[49m"),
@@ -58,6 +60,24 @@ let createColors = (enabled = isColorSupported) => {
 		bgMagenta: init("\x1b[45m", "\x1b[49m"),
 		bgCyan: init("\x1b[46m", "\x1b[49m"),
 		bgWhite: init("\x1b[47m", "\x1b[49m"),
+
+		blackBright: init("\x1b[90m", "\x1b[39m"),
+		redBright: init("\x1b[91m", "\x1b[39m"),
+		greenBright: init("\x1b[92m", "\x1b[39m"),
+		yellowBright: init("\x1b[93m", "\x1b[39m"),
+		blueBright: init("\x1b[94m", "\x1b[39m"),
+		magentaBright: init("\x1b[95m", "\x1b[39m"),
+		cyanBright: init("\x1b[96m", "\x1b[39m"),
+		whiteBright: init("\x1b[97m", "\x1b[39m"),
+
+		bgBlackBright: init("\x1b[100m","\x1b[49m"),
+		bgRedBright: init("\x1b[101m","\x1b[49m"),
+		bgGreenBright: init("\x1b[102m","\x1b[49m"),
+		bgYellowBright: init("\x1b[103m","\x1b[49m"),
+		bgBlueBright: init("\x1b[104m","\x1b[49m"),
+		bgMagentaBright: init("\x1b[105m","\x1b[49m"),
+		bgCyanBright: init("\x1b[106m","\x1b[49m"),
+		bgWhiteBright: init("\x1b[107m","\x1b[49m"),
 	}
 }
 
