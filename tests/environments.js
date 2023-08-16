@@ -46,6 +46,12 @@ test("windows", () => {
 	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
 })
 
+test("edge runtime", () => {
+	let pc = initModuleEnv({ env: { FORCE_COLOR: "1" }, argv: undefined, require: undefined })
+	assert.equal(pc.isColorSupported, true)
+	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
+})
+
 function test(name, fn) {
 	try {
 		fn()
@@ -56,7 +62,7 @@ function test(name, fn) {
 	}
 }
 
-function initModuleEnv({ env, argv = [], platform = "darwin" }) {
+function initModuleEnv({ env, argv = [], platform = "darwin", require = global.require }) {
 	let process = { env, argv, platform }
 	let context = vm.createContext({ require, process, module: { exports: {} } })
 	let script = new vm.Script(source)

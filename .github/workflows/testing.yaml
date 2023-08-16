@@ -2,9 +2,9 @@ name: Testing
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   modern:
@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version:
+          - 18
           - 16
           - 14
           - 12
