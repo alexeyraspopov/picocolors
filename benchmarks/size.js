@@ -40,6 +40,7 @@ async function start() {
 	await benchmark("  kleur")
 	await benchmark("  colorette")
 	await benchmark("  nanocolors")
+	await benchmark("  yoctocolors")
 	await benchmark("+ picocolors")
 }
 

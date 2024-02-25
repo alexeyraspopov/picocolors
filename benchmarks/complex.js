@@ -9,16 +9,18 @@ let benchmark = require("benchmark")
 let colorette = require("colorette")
 let kleur = require("kleur")
 let kleurColors = require("kleur/colors")
-let chalk = require("chalk")
+let chalk5 = require("./chalk5").default
+let chalk4 = require("chalk4")
 let ansi = require("ansi-colors")
 let cliColor = require("cli-color")
 let picocolors = require("../picocolors.js")
 let nanocolors = require("nanocolors")
+let yoctocolors = require("./yoctocolors")
 
 function formatNumber(number) {
 	return String(number)
 		.replace(/\d{3}$/, ",$&")
-		.replace(/^(\d|\d\d)(\d{3},)/, "$1,$2")
+		.replace(/^(\d{1,3})(\d{3},)/, "$1,$2")
 }
 
 let suite = new benchmark.Suite()
@@ -27,14 +29,24 @@ let out
 let index = 1e8
 
 suite
-	.add("chalk", () => {
+	.add("chalk5", () => {
 		out =
-			chalk.red(".") +
-			chalk.yellow(".") +
-			chalk.green(".") +
-			chalk.bgRed(chalk.black(" ERROR ")) +
-			chalk.red(
-				" Add plugin " + chalk.yellow("name") + " to use time limit with " + chalk.yellow(++index)
+			chalk5.red(".") +
+			chalk5.yellow(".") +
+			chalk5.green(".") +
+			chalk5.bgRed(chalk5.black(" ERROR ")) +
+			chalk5.red(
+				" Add plugin " + chalk5.yellow("name") + " to use time limit with " + chalk5.yellow(++index)
+			)
+	})
+	.add("chalk4", () => {
+		out =
+			chalk4.red(".") +
+			chalk4.yellow(".") +
+			chalk4.green(".") +
+			chalk4.bgRed(chalk4.black(" ERROR ")) +
+			chalk4.red(
+				" Add plugin " + chalk4.yellow("name") + " to use time limit with " + chalk4.yellow(++index)
 			)
 	})
 	.add("cli-color", () => {
@@ -109,6 +121,19 @@ suite
 					nanocolors.yellow(++index)
 			)
 	})
+	.add("yoctocolors", () => {
+		out =
+			yoctocolors.red(".") +
+			yoctocolors.yellow(".") +
+			yoctocolors.green(".") +
+			yoctocolors.bgRed(yoctocolors.black(" ERROR ")) +
+			yoctocolors.red(
+				" Add plugin " +
+					yoctocolors.yellow("name") +
+					" to use time limit with " +
+					yoctocolors.yellow(++index)
+			)
+	})
 	.add("picocolors", () => {
 		out =
 			picocolors.red(".") +
@@ -125,7 +150,7 @@ suite
 	.on("cycle", event => {
 		let prefix = event.target.name === "picocolors" ? "+ " : "  "
 		let name = event.target.name.padEnd("kleur/colors  ".length)
-		let hz = formatNumber(event.target.hz.toFixed(0)).padStart(10)
+		let hz = formatNumber(event.target.hz.toFixed(0)).padStart(11)
 		process.stdout.write(`${prefix}${name}${picocolors.bold(hz)} ops/sec\n`)
 	})
 	.on("error", event => {

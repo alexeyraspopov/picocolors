@@ -7,8 +7,12 @@ function showTime(name) {
 }
 
 before = performance.now()
-let chalk = require("chalk")
-showTime("chalk")
+let chalk5 = require("./chalk5")
+showTime("chalk5")
+
+before = performance.now()
+let chalk4 = require("chalk4")
+showTime("chalk4")
 
 before = performance.now()
 let cliColor = require("cli-color")
@@ -33,6 +37,10 @@ showTime("colorette")
 before = performance.now()
 let nanocolors = require("nanocolors")
 showTime("nanocolors")
+
+before = performance.now()
+let yoctocolors = require("./yoctocolors")
+showTime("yoctocolors")
 
 before = performance.now()
 let picocolors = require("../picocolors.js")
