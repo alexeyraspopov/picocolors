@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 18
       - run: npm install
+      - run: npm run build
+      - run: npm run build-benchmarks
       - name: Ensure color support detection
         run: node tests/environments.js
       - name: Simple API calls
