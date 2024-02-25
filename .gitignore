@@ -1,2 +1,3 @@
 node_modules
 picocolors.mjs
+tests/types.mjs

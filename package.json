@@ -17,12 +17,12 @@
   "sideEffects": false,
   "description": "The tiniest and the fastest library for terminal output formatting with ANSI colors",
   "scripts": {
-    "build": "node build-esm.mjs",
+    "build": "node build-esm.mjs && tsc --module esnext tests/types.mts",
     "test": "node tests/test.js"
   },
   "files": [
     "picocolors.*",
-    "types.ts"
+    "*.ts"
   ],
   "keywords": [
     "terminal",
@@ -43,7 +43,8 @@
     "colorette": "^2.0.20",
     "kleur": "^4.1.5",
     "nanocolors": "^0.2.13",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "typescript": "^5.3.3"
   },
   "prettier": {
     "printWidth": 100,
