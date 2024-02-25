@@ -4,10 +4,12 @@ let { execSync } = require("child_process")
 
 let RUNS = 50
 
+let esm = process.argv[2] === "--esm"
+let ext = esm ? "mjs" : "js"
 let results = {}
 
 for (let i = 0; i < RUNS; i++) {
-	let output = execSync("node ./benchmarks/loading-runner.js").toString()
+	let output = execSync(`node ./benchmarks/loading-runner.${ext}`).toString()
 	output
 		.trim()
 		.split("\n")
@@ -17,6 +19,7 @@ for (let i = 0; i < RUNS; i++) {
 		})
 }
 
+console.log(`Results for ${esm ? 'ESM' : 'CJS'}:`)
 for (let name in results) {
 	let prefix = name === "picocolors" ? "+ " : "  "
 	let title = name.padEnd("kleur/colors  ".length)
