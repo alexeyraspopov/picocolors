@@ -11,19 +11,19 @@ let isColorSupported =
 let formatter =
 	(open, close, replace = open) =>
 	input => {
-		let string = "" + input
-		let index = string.indexOf(close, open.length)
-		return ~index
-			? open + replaceClose(string, close, replace, index) + close
-			: open + string + close
+		let string = "" + input;
+		let result = "";
+		while (true) {
+			let i = string.indexOf(close);
+			if (i === -1) {
+				result += string;
+				break;
+			}
+			result += string.substring(0, i) + replace;
+			string = string.substring(i + close.length);
+		}
+		return open + result + close;
 	}
-
-let replaceClose = (string, close, replace, index) => {
-	let start = string.substring(0, index) + replace
-	let end = string.substring(index + close.length)
-	let nextIndex = end.indexOf(close)
-	return ~nextIndex ? start + replaceClose(end, close, replace, nextIndex) : start + end
-}
 
 let createColors = (enabled = isColorSupported) => ({
 	isColorSupported: enabled,
