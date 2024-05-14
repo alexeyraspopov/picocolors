@@ -19,10 +19,14 @@ let formatter =
 	}
 
 let replaceClose = (string, close, replace, index) => {
-	let start = string.substring(0, index) + replace
-	let end = string.substring(index + close.length)
-	let nextIndex = end.indexOf(close)
-	return ~nextIndex ? start + replaceClose(end, close, replace, nextIndex) : start + end
+	let result = ""
+	let cursor = 0
+	do {
+		result += string.substring(cursor, index) + replace
+		cursor = index + close.length
+		index = string.indexOf(close, cursor)
+	} while (~index)
+	return result + string.substring(cursor)
 }
 
 let createColors = (enabled = isColorSupported) => ({
