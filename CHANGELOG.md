@@ -1,6 +1,6 @@
 # Changelog
 
-## [v1.0.1](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.0.0)
+## [v1.0.1](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.0.1)
 
 - Updated color detection mechanism to work properly on Vercel Edge Runtime ([#64](https://github.com/alexeyraspopov/picocolors/pull/64))
 - Remove use of recursion to avoid possible stack overflow for very long inputs ([#56](https://github.com/alexeyraspopov/picocolors/pull/56))
