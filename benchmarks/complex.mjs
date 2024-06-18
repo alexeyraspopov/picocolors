@@ -5,19 +5,19 @@
 // 2. Run tests 5 times.
 // 3. Took the best result for each candidate.
 
-let {Bench} = require("tinybench")
-let colorette = require("colorette")
-let kleur = require("kleur")
-let kleurColors = require("kleur/colors")
-let chalk = require("chalk")
-let ansi = require("ansi-colors")
-let cliColor = require("cli-color")
-let picocolors = require("../picocolors.js")
-let nanocolors = require("nanocolors")
-
-const bench = new Bench()
+import {Bench} from "tinybench"
+import * as colorette from "colorette"
+import kleur from "kleur"
+import * as kleurColors from "kleur/colors"
+import chalk from "chalk"
+import ansi from "ansi-colors"
+import cliColor from "cli-color"
+import picocolors from "../picocolors.js"
+import * as nanocolors from "nanocolors"
+import * as yoctocolors from "yoctocolors"
 
 let index = 1e8
+const bench = new Bench()
 
 bench
 	.add("chalk", () => {
@@ -95,6 +95,18 @@ bench
 					nanocolors.yellow(++index)
 			)
 	})
+	.add("yoctocolors", () => {
+			yoctocolors.red(".") +
+			yoctocolors.yellow(".") +
+			yoctocolors.green(".") +
+			yoctocolors.bgRed(yoctocolors.black(" ERROR ")) +
+			yoctocolors.red(
+				" Add plugin " +
+					yoctocolors.yellow("name") +
+					" to use time limit with " +
+					yoctocolors.yellow(++index)
+			)
+	})
 	.add("picocolors", () => {
 			picocolors.red(".") +
 			picocolors.yellow(".") +
@@ -106,13 +118,9 @@ bench
 					" to use time limit with " +
 					picocolors.yellow(++index)
 			)
-	})
+	});
 
-async function run() {
-	await bench.warmup()
-	await bench.run()
+await bench.warmup()
+await bench.run()
 
-	console.table(bench.table())
-}
-
-run()
+console.table(bench.table())
