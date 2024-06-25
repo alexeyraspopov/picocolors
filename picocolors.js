@@ -22,11 +22,11 @@ let replaceClose = (string, close, replace, index) => {
 	let result = ""
 	let cursor = 0
 	do {
-		result += string.substring(cursor, index) + replace
+		result += string.slice(cursor, index) + replace
 		cursor = index + close.length
 		index = string.indexOf(close, cursor)
 	} while (~index)
-	return result + string.substring(cursor)
+	return result + string.slice(cursor)
 }
 
 let createColors = (enabled = isColorSupported) => {
