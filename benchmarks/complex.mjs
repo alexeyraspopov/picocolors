@@ -5,17 +5,17 @@
 // 2. Run tests 5 times.
 // 3. Took the best result for each candidate.
 
-let benchmark = require("benchmark")
-let colorette = require("colorette")
-let kleur = require("kleur")
-let kleurColors = require("kleur/colors")
-let chalk5 = require("./chalk5").default
-let chalk4 = require("chalk4")
-let ansi = require("ansi-colors")
-let cliColor = require("cli-color")
-let picocolors = require("../picocolors.js")
-let nanocolors = require("nanocolors")
-let yoctocolors = require("./yoctocolors")
+import benchmark from "benchmark"
+import * as colorette from "colorette"
+import kleur from "kleur"
+import * as kleurColors from "kleur/colors"
+import chalk5 from "chalk5"
+import chalk4 from "chalk4"
+import ansi from "ansi-colors"
+import cliColor from "cli-color"
+import picocolors from "../picocolors.js"
+import * as nanocolors from "nanocolors"
+import * as yoctocolors from "yoctocolors"
 
 function formatNumber(number) {
 	return String(number)

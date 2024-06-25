@@ -1,4 +1,4 @@
-const { performance } = require("perf_hooks")
+import { performance } from "perf_hooks"
 
 let before
 function showTime(name) {
@@ -7,41 +7,41 @@ function showTime(name) {
 }
 
 before = performance.now()
-let chalk5 = require("./chalk5")
+let chalk5 = await import("./chalk5.js")
 showTime("chalk5")
 
 before = performance.now()
-let chalk4 = require("chalk4")
+let chalk4 = await import("chalk4")
 showTime("chalk4")
 
 before = performance.now()
-let cliColor = require("cli-color")
+let cliColor = await import("cli-color")
 showTime("cli-color")
 
 before = performance.now()
-let ansi = require("ansi-colors")
+let ansi = await import("ansi-colors")
 showTime("ansi-colors")
 
 before = performance.now()
-let kleur = require("kleur")
+let kleur = await import("kleur")
 showTime("kleur")
 
 before = performance.now()
-let kleurColors = require("kleur/colors")
+let kleurColors = await import("kleur/colors")
 showTime("kleur/colors")
 
 before = performance.now()
-let colorette = require("colorette")
+let colorette = await import("colorette")
 showTime("colorette")
 
 before = performance.now()
-let nanocolors = require("nanocolors")
+let nanocolors = await import("nanocolors")
 showTime("nanocolors")
 
 before = performance.now()
-let yoctocolors = require("./yoctocolors")
+let yoctocolors = await import("./yoctocolors.js")
 showTime("yoctocolors")
 
 before = performance.now()
-let picocolors = require("../picocolors.js")
+let picocolors = await import("../picocolors.js")
 showTime("picocolors")
