@@ -5,15 +5,16 @@
 // 2. Run tests 5 times.
 // 3. Took the best result for each candidate.
 
-const {Bench} = require("tinybench")
-let colorette = require("colorette")
-let kleur = require("kleur")
-let kleurColors = require("kleur/colors")
-let chalk = require("chalk")
-let ansi = require("ansi-colors")
-let cliColor = require("cli-color")
-let picocolors = require("../picocolors.js")
-let nanocolors = require("nanocolors")
+import {Bench} from "tinybench"
+import * as colorette from "colorette"
+import kleur from "kleur"
+import * as kleurColors from "kleur/colors"
+import chalk from "chalk"
+import ansi from "ansi-colors"
+import cliColor from "cli-color"
+import picocolors from "../picocolors.js"
+import * as nanocolors from "nanocolors"
+import * as yoctocolors from "yoctocolors"
 
 console.log(colorette.green("colorette"))
 console.log(kleur.green("kleur"))
@@ -47,14 +48,14 @@ bench
 	.add("nanocolors", () => {
 		nanocolors.red("Add plugin to use time limit")
 	})
+	.add("yoctccolors", () => {
+		yoctocolors.red("Add plugin to use time limit")
+	})
 	.add("picocolors", () => {
 		picocolors.red("Add plugin to use time limit")
 	})
 
-async function run() {
-	await bench.warmup()
-	await bench.run()
-	console.table(bench.table())
-}
+await bench.warmup()
+await bench.run()
 
-run()
+console.table(bench.table())
