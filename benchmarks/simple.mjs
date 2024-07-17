@@ -48,7 +48,7 @@ bench
 	.add("nanocolors", () => {
 		nanocolors.red("Add plugin to use time limit")
 	})
-	.add("yoctccolors", () => {
+	.add("yoctocolors", () => {
 		yoctocolors.red("Add plugin to use time limit")
 	})
 	.add("picocolors", () => {
