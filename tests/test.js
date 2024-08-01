@@ -156,6 +156,16 @@ test("non-string input", () => {
 	assert.equal(pc.red(Infinity), FMT.red[0] + "Infinity" + FMT.red[1])
 })
 
+test("shouldn't overflow when coloring already colored large text", () => {
+  try {
+    pc.blue(pc.red("x").repeat(10000))
+    assert(true)
+  } catch (error){
+    console.error(error)
+    assert(false)
+  }
+})
+
 function test(name, fn) {
 	try {
 		fn()
