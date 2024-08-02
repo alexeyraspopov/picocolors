@@ -5,7 +5,7 @@ let isColorSupported =
 	("FORCE_COLOR" in env ||
 		argv.includes("--color") ||
 		process.platform === "win32" ||
-		(require != null && require("tty").isatty(1) && env.TERM !== "dumb") ||
+		(require && require("tty").isatty(1) && env.TERM !== "dumb") ||
 		"CI" in env)
 
 let formatter =
