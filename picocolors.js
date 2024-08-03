@@ -13,20 +13,18 @@ let formatter =
 	input => {
 		let string = "" + input
 		let index = string.indexOf(close, open.length)
-		return ~index
-			? open + replaceClose(string, close, replace, index) + close
-			: open + string + close
-	}
-
-let replaceClose = (string, close, replace, index) => {
-	let result = ""
-	let cursor = 0
-	do {
-		result += string.substring(cursor, index) + replace
-		cursor = index + close.length
-		index = string.indexOf(close, cursor)
-	} while (~index)
-	return result + string.substring(cursor)
+		if (index === -1) {
+			return open + string + close
+		}
+		let result = ""
+		let cursor = 0
+		let closeLength = close.length
+		do {
+			result += string.substring(cursor, index) + replace
+			cursor = index + closeLength
+			index = string.indexOf(close, cursor)
+		} while (~index)
+		return open + result + string.substring(cursor) + close
 }
 
 let createColors = (enabled = isColorSupported) => {
