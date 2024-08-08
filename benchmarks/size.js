@@ -6,7 +6,7 @@ let { bold, gray } = require("../picocolors.js")
 
 async function getJSON(url) {
 	return new Promise(resolve => {
-		get(url, { headers: {"user-agent": 'picocolors'} },res => {
+		get(url, { headers: {"user-agent": 'picocolors-size-benchmark'} },res => {
 			let text = ""
 			res.on("data", chunk => {
 				text += chunk
