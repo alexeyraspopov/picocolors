@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.1.0](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.1.0)
+
+- Added bright color variants ([#55](https://github.com/alexeyraspopov/picocolors/pull/55))
+
 ## [v1.0.1](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.0.1)
 
 - Updated color detection mechanism to work properly on Vercel Edge Runtime ([#64](https://github.com/alexeyraspopov/picocolors/pull/64))
