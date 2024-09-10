@@ -13,7 +13,7 @@
   },
   "files": [
     "picocolors.*",
-    "types.ts"
+    "types.d.ts"
   ],
   "keywords": [
     "terminal",
