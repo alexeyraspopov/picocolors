@@ -34,12 +34,14 @@ async function benchmark(lib) {
 
 async function start() {
 	process.stdout.write(gray("Data from packagephobia.com\n"))
-	await benchmark("  chalk")
+	await benchmark("  chalk@5.3.0")
+	await benchmark("  chalk@4.1.2")
 	await benchmark("  cli-color")
 	await benchmark("  ansi-colors")
 	await benchmark("  kleur")
 	await benchmark("  colorette")
 	await benchmark("  nanocolors")
+	await benchmark("  yoctocolors")
 	await benchmark("+ picocolors")
 }
 
