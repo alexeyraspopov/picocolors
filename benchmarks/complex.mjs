@@ -1,34 +1,20 @@
-#!/usr/bin/env node
+import { run, bench, summary } from "mitata"
 
-// Benchmark results are unstable. To have more stable results:
-// 1. Restart OS. Do not run any applications. Put power cable to laptop.
-// 2. Run tests 5 times.
-// 3. Took the best result for each candidate.
+import * as colorette from "colorette"
+import kleur from "kleur"
+import * as kleurColors from "kleur/colors"
+import chalk from "chalk"
+import ansi from "ansi-colors"
+import cliColor from "cli-color"
+import picocolors from "../picocolors.js"
+import * as nanocolors from "nanocolors"
 
-let benchmark = require("benchmark")
-let colorette = require("colorette")
-let kleur = require("kleur")
-let kleurColors = require("kleur/colors")
-let chalk = require("chalk")
-let ansi = require("ansi-colors")
-let cliColor = require("cli-color")
-let picocolors = require("../picocolors.js")
-let nanocolors = require("nanocolors")
+summary(() => {
+	let index = 1e8
 
-function formatNumber(number) {
-	return String(number)
-		.replace(/\d{3}$/, ",$&")
-		.replace(/^(\d|\d\d)(\d{3},)/, "$1,$2")
-}
-
-let suite = new benchmark.Suite()
-let out
-
-let index = 1e8
-
-suite
-	.add("chalk", () => {
-		out =
+	bench(
+		"chalk",
+		() =>
 			chalk.red(".") +
 			chalk.yellow(".") +
 			chalk.green(".") +
@@ -36,9 +22,11 @@ suite
 			chalk.red(
 				" Add plugin " + chalk.yellow("name") + " to use time limit with " + chalk.yellow(++index)
 			)
-	})
-	.add("cli-color", () => {
-		out =
+	)
+
+	bench(
+		"cli-color",
+		() =>
 			cliColor.red(".") +
 			cliColor.yellow(".") +
 			cliColor.green(".") +
@@ -49,9 +37,11 @@ suite
 					" to use time limit with " +
 					cliColor.yellow(++index)
 			)
-	})
-	.add("ansi-colors", () => {
-		out =
+	)
+
+	bench(
+		"ansi-colors",
+		() =>
 			ansi.red(".") +
 			ansi.yellow(".") +
 			ansi.green(".") +
@@ -59,9 +49,11 @@ suite
 			ansi.red(
 				" Add plugin " + ansi.yellow("name") + " to use time limit with " + ansi.yellow(++index)
 			)
-	})
-	.add("kleur", () => {
-		out =
+	)
+
+	bench(
+		"kleur",
+		() =>
 			kleur.red(".") +
 			kleur.yellow(".") +
 			kleur.green(".") +
@@ -69,9 +61,11 @@ suite
 			kleur.red(
 				" Add plugin " + kleur.yellow("name") + " to use time limit with " + kleur.yellow(++index)
 			)
-	})
-	.add("kleur/colors", () => {
-		out =
+	)
+
+	bench(
+		"kleur/colors",
+		() =>
 			kleurColors.red(".") +
 			kleurColors.yellow(".") +
 			kleurColors.green(".") +
@@ -82,9 +76,11 @@ suite
 					" to use time limit with " +
 					kleurColors.yellow(++index)
 			)
-	})
-	.add("colorette", () => {
-		out =
+	)
+
+	bench(
+		"colorette",
+		() =>
 			colorette.red(".") +
 			colorette.yellow(".") +
 			colorette.green(".") +
@@ -95,9 +91,11 @@ suite
 					" to use time limit with " +
 					colorette.yellow(++index)
 			)
-	})
-	.add("nanocolors", () => {
-		out =
+	)
+
+	bench(
+		"nanocolors",
+		() =>
 			nanocolors.red(".") +
 			nanocolors.yellow(".") +
 			nanocolors.green(".") +
@@ -108,9 +106,11 @@ suite
 					" to use time limit with " +
 					nanocolors.yellow(++index)
 			)
-	})
-	.add("picocolors", () => {
-		out =
+	)
+
+	bench(
+		"picocolors",
+		() =>
 			picocolors.red(".") +
 			picocolors.yellow(".") +
 			picocolors.green(".") +
@@ -121,15 +121,7 @@ suite
 					" to use time limit with " +
 					picocolors.yellow(`${++index}`)
 			)
-	})
-	.on("cycle", event => {
-		let prefix = event.target.name === "picocolors" ? "+ " : "  "
-		let name = event.target.name.padEnd("kleur/colors  ".length)
-		let hz = formatNumber(event.target.hz.toFixed(0)).padStart(10)
-		process.stdout.write(`${prefix}${name}${picocolors.bold(hz)} ops/sec\n`)
-	})
-	.on("error", event => {
-		process.stderr.write(picocolors.red(event.target.error.toString()) + "\n")
-		process.exit(1)
-	})
-	.run()
+	)
+})
+
+await run()

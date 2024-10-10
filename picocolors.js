@@ -70,14 +70,14 @@ let createColors = (enabled = isColorSupported) => {
 		cyanBright: init("\x1b[96m", "\x1b[39m"),
 		whiteBright: init("\x1b[97m", "\x1b[39m"),
 
-		bgBlackBright: init("\x1b[100m","\x1b[49m"),
-		bgRedBright: init("\x1b[101m","\x1b[49m"),
-		bgGreenBright: init("\x1b[102m","\x1b[49m"),
-		bgYellowBright: init("\x1b[103m","\x1b[49m"),
-		bgBlueBright: init("\x1b[104m","\x1b[49m"),
-		bgMagentaBright: init("\x1b[105m","\x1b[49m"),
-		bgCyanBright: init("\x1b[106m","\x1b[49m"),
-		bgWhiteBright: init("\x1b[107m","\x1b[49m"),
+		bgBlackBright: init("\x1b[100m", "\x1b[49m"),
+		bgRedBright: init("\x1b[101m", "\x1b[49m"),
+		bgGreenBright: init("\x1b[102m", "\x1b[49m"),
+		bgYellowBright: init("\x1b[103m", "\x1b[49m"),
+		bgBlueBright: init("\x1b[104m", "\x1b[49m"),
+		bgMagentaBright: init("\x1b[105m", "\x1b[49m"),
+		bgCyanBright: init("\x1b[106m", "\x1b[49m"),
+		bgWhiteBright: init("\x1b[107m", "\x1b[49m"),
 	}
 }
 
