@@ -21,6 +21,8 @@ jobs:
       - run: npm install
       - name: Ensure color support detection
         run: node tests/environments.js
+      - name: Install esbuild
+        run: npm install esbuild
       - name: Simple API calls
         run: node benchmarks/simple.mjs
       - name: Complex formatting expression
