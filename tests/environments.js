@@ -3,6 +3,7 @@ let fs = require("fs")
 let pc = require("../picocolors.js")
 let assert = require("assert")
 let source = fs.readFileSync(__dirname + "/../picocolors.js", "utf-8")
+let CI = process.env.CI
 
 test("ci server", () => {
 	let pc = initModuleEnv({ env: { TERM: "dumb", CI: "1" } })
@@ -23,7 +24,7 @@ test("env NO_COLOR", () => {
 })
 
 test("env NO_COLOR empty", () => {
-	let pc = initModuleEnv({ env: { NO_COLOR: "" } })
+	let pc = initModuleEnv({ env: { NO_COLOR: "", CI } })
 	assert.equal(pc.isColorSupported, true)
 	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
 })
