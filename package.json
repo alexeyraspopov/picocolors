@@ -34,14 +34,16 @@
     "kleur": "^4.1.4",
     "mitata": "^1.0.10",
     "nanocolors": "^0.2.12",
-    "prettier": "^2.4.1"
+    "prettier": "^3.3.3",
+    "yoctocolors": "^2.1.1"
   },
   "prettier": {
     "printWidth": 100,
     "useTabs": true,
     "tabWidth": 2,
     "semi": false,
-    "arrowParens": "avoid"
+    "arrowParens": "avoid",
+    "requirePragma": true
   },
   "clean-publish": {
     "cleanDocs": true

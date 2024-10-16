@@ -1,3 +1,4 @@
+/* @prettier */
 let vm = require("vm")
 let fs = require("fs")
 let pc = require("../picocolors.js")

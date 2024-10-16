@@ -1,3 +1,4 @@
+/* @prettier */
 let pc = require("../picocolors.js")
 let assert = require("assert")
 
@@ -31,22 +32,22 @@ const FMT = {
 	bgWhite: ["\x1b[47m", "\x1b[49m"],
 
 	blackBright: ["\x1b[90m", "\x1b[39m"],
-  redBright: ["\x1b[91m", "\x1b[39m"],
-  greenBright: ["\x1b[92m", "\x1b[39m"],
-  yellowBright: ["\x1b[93m", "\x1b[39m"],
-  blueBright: ["\x1b[94m", "\x1b[39m"],
-  magentaBright: ["\x1b[95m", "\x1b[39m"],
-  cyanBright: ["\x1b[96m", "\x1b[39m"],
-  whiteBright: ["\x1b[97m", "\x1b[39m"],
+	redBright: ["\x1b[91m", "\x1b[39m"],
+	greenBright: ["\x1b[92m", "\x1b[39m"],
+	yellowBright: ["\x1b[93m", "\x1b[39m"],
+	blueBright: ["\x1b[94m", "\x1b[39m"],
+	magentaBright: ["\x1b[95m", "\x1b[39m"],
+	cyanBright: ["\x1b[96m", "\x1b[39m"],
+	whiteBright: ["\x1b[97m", "\x1b[39m"],
 
-  bgBlackBright: ["\x1b[100m","\x1b[49m"],
-  bgRedBright: ["\x1b[101m","\x1b[49m"],
-  bgGreenBright: ["\x1b[102m","\x1b[49m"],
-  bgYellowBright: ["\x1b[103m","\x1b[49m"],
-  bgBlueBright: ["\x1b[104m","\x1b[49m"],
-  bgMagentaBright: ["\x1b[105m","\x1b[49m"],
-  bgCyanBright: ["\x1b[106m","\x1b[49m"],
-  bgWhiteBright: ["\x1b[107m","\x1b[49m"],
+	bgBlackBright: ["\x1b[100m", "\x1b[49m"],
+	bgRedBright: ["\x1b[101m", "\x1b[49m"],
+	bgGreenBright: ["\x1b[102m", "\x1b[49m"],
+	bgYellowBright: ["\x1b[103m", "\x1b[49m"],
+	bgBlueBright: ["\x1b[104m", "\x1b[49m"],
+	bgMagentaBright: ["\x1b[105m", "\x1b[49m"],
+	bgCyanBright: ["\x1b[106m", "\x1b[49m"],
+	bgWhiteBright: ["\x1b[107m", "\x1b[49m"],
 }
 
 test("color matching", () => {
@@ -157,13 +158,13 @@ test("non-string input", () => {
 })
 
 test("shouldn't overflow when coloring already colored large text", () => {
-  try {
-    pc.blue(pc.red("x").repeat(10000))
-    assert(true)
-  } catch (error){
-    console.error(error)
-    assert(false)
-  }
+	try {
+		pc.blue(pc.red("x").repeat(10000))
+		assert(true)
+	} catch (error) {
+		console.error(error)
+		assert(false)
+	}
 })
 
 function test(name, fn) {

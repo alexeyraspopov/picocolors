@@ -23,11 +23,13 @@ jobs:
         run: node tests/environments.js
       - name: Install esbuild
         run: npm install esbuild
+      - name: Install missing libs
+        run: npm install chalk5@"npm:chalk@v5.x"
       - name: Simple API calls
-        run: node benchmarks/simple.mjs
+        run: node benchmarks/simple.mjs --expose-gc
       - name: Complex formatting expression
-        run: node benchmarks/complex.mjs
+        run: node benchmarks/complex.mjs --expose-gc
       - name: Library module's init time
-        run: node benchmarks/loading.mjs
+        run: node benchmarks/loading.mjs --expose-gc
       - name: Total loaded code size
         run: node benchmarks/size.mjs

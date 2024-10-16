@@ -1,19 +1,22 @@
+/* @prettier */
 import { run, bench, summary } from "mitata"
 
 import * as colorette from "colorette"
 import kleur from "kleur"
 import * as kleurColors from "kleur/colors"
 import chalk from "chalk"
+import chalk5 from "chalk5"
 import ansi from "ansi-colors"
 import cliColor from "cli-color"
 import picocolors from "../picocolors.js"
 import * as nanocolors from "nanocolors"
+import * as yoctocolors from "yoctocolors"
 
 summary(() => {
 	let index = 1e8
 
 	bench(
-		"chalk",
+		"chalk v4",
 		() =>
 			chalk.red(".") +
 			chalk.yellow(".") +
@@ -21,6 +24,33 @@ summary(() => {
 			chalk.bgRed(chalk.black(" ERROR ")) +
 			chalk.red(
 				" Add plugin " + chalk.yellow("name") + " to use time limit with " + chalk.yellow(++index)
+			)
+	)
+
+	bench(
+		"chalk v5",
+		() =>
+			chalk5.red(".") +
+			chalk5.yellow(".") +
+			chalk5.green(".") +
+			chalk5.bgRed(chalk5.black(" ERROR ")) +
+			chalk5.red(
+				" Add plugin " + chalk5.yellow("name") + " to use time limit with " + chalk5.yellow(++index)
+			)
+	)
+
+	bench(
+		"yoctocolors",
+		() =>
+			yoctocolors.red(".") +
+			yoctocolors.yellow(".") +
+			yoctocolors.green(".") +
+			yoctocolors.bgRed(yoctocolors.black(" ERROR ")) +
+			yoctocolors.red(
+				" Add plugin " +
+					yoctocolors.yellow("name") +
+					" to use time limit with " +
+					yoctocolors.yellow(++index)
 			)
 	)
 
