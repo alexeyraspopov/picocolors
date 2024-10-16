@@ -1,3 +1,4 @@
+/* @prettier */
 import { buildSync } from "esbuild"
 import { dirname } from "node:path"
 

@@ -1,3 +1,4 @@
+/* @prettier */
 import { run, bench, boxplot } from "mitata"
 
 import * as colorette from "colorette"

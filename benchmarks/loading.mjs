@@ -1,3 +1,4 @@
+/* @prettier */
 import { run, bench, group } from "mitata"
 import { buildSync } from "esbuild"
 import { createRequire } from "module"
