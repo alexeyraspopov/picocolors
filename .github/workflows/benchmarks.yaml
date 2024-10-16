@@ -22,9 +22,9 @@ jobs:
       - name: Ensure color support detection
         run: node tests/environments.js
       - name: Install esbuild
-        run: npm install --no-save esbuild
+        run: npm install esbuild
       - name: Install missing libs
-        run: npm install --no-save chalk5@"npm:chalk@v5.x"
+        run: npm install chalk5@"npm:chalk@v5.x"
       - name: Simple API calls
         run: node benchmarks/simple.mjs --expose-gc
       - name: Complex formatting expression
