@@ -22,6 +22,12 @@ test("env NO_COLOR", () => {
 	assert.equal(pc.red("text"), pc.createColors(false).red("text"))
 })
 
+test("env NO_COLOR empty", () => {
+	let pc = initModuleEnv({ env: { NO_COLOR: "" } })
+	assert.equal(pc.isColorSupported, true)
+	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
+})
+
 test("env FORCE_COLOR", () => {
 	let pc = initModuleEnv({ env: { TERM: "dumb", FORCE_COLOR: "1" } })
 	assert.equal(pc.isColorSupported, true)
@@ -62,8 +68,14 @@ function test(name, fn) {
 	}
 }
 
-function initModuleEnv({ env, argv = [], platform = "darwin", require = global.require }) {
-	let process = { env, argv, platform }
+function initModuleEnv({
+	env,
+	argv = [],
+	platform = "darwin",
+	require = global.require,
+	stdout = process.stdout,
+}) {
+	let process = { env, argv, platform, stdout }
 	let context = vm.createContext({ require, process, module: { exports: {} } })
 	let script = new vm.Script(source)
 	script.runInContext(context)
