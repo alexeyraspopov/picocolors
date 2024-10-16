@@ -1,12 +1,13 @@
-let argv = process.argv || [],
-	env = process.env
+let p = process || {},
+	argv = p.argv || [],
+	env = p.env || {}
 let isColorSupported =
-	!("NO_COLOR" in env || argv.includes("--no-color")) &&
-	("FORCE_COLOR" in env ||
+	!(!!env.NO_COLOR || argv.includes("--no-color")) &&
+	(!!env.FORCE_COLOR ||
 		argv.includes("--color") ||
-		process.platform === "win32" ||
-		(require != null && require("tty").isatty(1) && env.TERM !== "dumb") ||
-		"CI" in env)
+		p.platform === "win32" ||
+		((p.stdout || {}).isTTY && env.TERM !== "dumb") ||
+		!!env.CI)
 
 let formatter =
 	(open, close, replace = open) =>

@@ -3,6 +3,7 @@ let fs = require("fs")
 let pc = require("../picocolors.js")
 let assert = require("assert")
 let source = fs.readFileSync(__dirname + "/../picocolors.js", "utf-8")
+let CI = process.env.CI
 
 test("ci server", () => {
 	let pc = initModuleEnv({ env: { TERM: "dumb", CI: "1" } })
@@ -20,6 +21,12 @@ test("env NO_COLOR", () => {
 	let pc = initModuleEnv({ env: { FORCE_COLOR: "1", NO_COLOR: "1" } })
 	assert.equal(pc.isColorSupported, false)
 	assert.equal(pc.red("text"), pc.createColors(false).red("text"))
+})
+
+test("env NO_COLOR empty", () => {
+	let pc = initModuleEnv({ env: { NO_COLOR: "", CI } })
+	assert.equal(pc.isColorSupported, true)
+	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
 })
 
 test("env FORCE_COLOR", () => {
@@ -62,8 +69,14 @@ function test(name, fn) {
 	}
 }
 
-function initModuleEnv({ env, argv = [], platform = "darwin", require = global.require }) {
-	let process = { env, argv, platform }
+function initModuleEnv({
+	env,
+	argv = [],
+	platform = "darwin",
+	require = global.require,
+	stdout = process.stdout,
+}) {
+	let process = { env, argv, platform, stdout }
 	let context = vm.createContext({ require, process, module: { exports: {} } })
 	let script = new vm.Script(source)
 	script.runInContext(context)
