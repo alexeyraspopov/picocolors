@@ -1,14 +1,13 @@
 let p = process || {},
 	argv = p.argv || [],
-	env = p.env || {},
-	out = p.stdout || {}
+	env = p.env || {}
 let ne = v => v != null && String(v).length > 0
 let isColorSupported =
 	!(ne(env.NO_COLOR) || argv.includes("--no-color")) &&
 	(ne(env.FORCE_COLOR) ||
 		argv.includes("--color") ||
 		p.platform === "win32" ||
-		(out.isTTY && env.TERM !== "dumb") ||
+		((p.stdout || {}).isTTY && env.TERM !== "dumb") ||
 		ne(env.CI))
 
 let formatter =
