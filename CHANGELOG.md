@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.1.1](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.1.1)
+
+- Moved TypeScript declarations to a `d.ts` file ([#82](https://github.com/alexeyraspopov/picocolors/pull/82))
+- Reworked color detection algorithm to properly work with empty strings in `NO_COLOR` and `FORCE_COLOR` env variables ([#87](https://github.com/alexeyraspopov/picocolors/pull/87))
+- Eliminated `require()` call to make the package compatible with some tools ([#87](https://github.com/alexeyraspopov/picocolors/pull/87))
+
 ## [v1.1.0](https://github.com/alexeyraspopov/picocolors/releases/tag/v1.1.0)
 
 - Added bright color variants ([#55](https://github.com/alexeyraspopov/picocolors/pull/55))
