@@ -13,24 +13,26 @@ jobs:
     strategy:
       matrix:
         node-version:
+          - 22
           - 20
           - 18
-          - 16
-          - 14
-          - 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: node tests/test.js
+      - run: npm run build
+      - run: npm test
   legacy:
     name: Node v${{ matrix.node-version }} (Legacy)
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
+          - 16
+          - 14
+          - 12
           - 10
           - 8
           - 6
