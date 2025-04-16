@@ -1,6 +1,6 @@
 /* @prettier */
-let pc = require("../picocolors.js")
-let assert = require("assert")
+import pc from "../picocolors.js"
+import assert from "node:assert"
 
 const FMT = {
 	reset: ["\x1b[0m", "\x1b[0m"],
