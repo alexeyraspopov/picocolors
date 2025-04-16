@@ -1,4 +1,4 @@
-let p = process || {}, argv = p.argv || [], env = p.env || {}
+let p = globalThis.process || {}, argv = p.argv || [], env = p.env || {}
 let isColorSupported =
 	!(!!env.NO_COLOR || argv.includes("--no-color")) &&
 	(!!env.FORCE_COLOR || argv.includes("--color") || p.platform === "win32" || ((p.stdout || {}).isTTY && env.TERM !== "dumb") || !!env.CI)
@@ -71,5 +71,5 @@ let createColors = (enabled = isColorSupported) => {
 	}
 }
 
-module.exports = createColors()
-module.exports.createColors = createColors
+export {createColors};
+export default createColors();

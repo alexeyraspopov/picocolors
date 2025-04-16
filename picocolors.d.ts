@@ -1,5 +1,6 @@
 import { Colors } from "./types"
 
-declare const picocolors: Colors & { createColors: (enabled?: boolean) => Colors }
+declare const picocolors: Colors
 
-export = picocolors
+export const createColors: (enabled?: boolean) => Colors
+export default picocolors

@@ -98,6 +98,16 @@ Picocolors provides an object which includes a variety of text coloring and form
 import pc from "picocolors"
 ```
 
+If you're in a CommonJS project, you can import like so:
+
+```js
+// Node 20.x onwards
+const {default: pc} = require("picocolors")
+
+// Before Node 20.x
+const {default: pc} = await import("picocolors")
+```
+
 The object includes following coloring functions: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`, `gray`.
 
 ```javascript
