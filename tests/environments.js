@@ -8,8 +8,8 @@ let CI = process.env.CI
 
 test("ci server", () => {
 	let pc = initModuleEnv({ env: { TERM: "dumb", CI: "1" } })
-	assert.equal(pc.isColorSupported, true)
-	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
+	assert.equal(pc.isColorSupported, false)
+	assert.equal(pc.red("text"), pc.createColors(false).red("text"))
 })
 
 test("arg --color", () => {
@@ -25,7 +25,7 @@ test("env NO_COLOR", () => {
 })
 
 test("env NO_COLOR empty", () => {
-	let pc = initModuleEnv({ env: { NO_COLOR: "", CI } })
+	let pc = initModuleEnv({ env: { FORCE_COLOR: "1", NO_COLOR: "" } })
 	assert.equal(pc.isColorSupported, true)
 	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
 })
