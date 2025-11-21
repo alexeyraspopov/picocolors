@@ -28,9 +28,11 @@
   "devDependencies": {
     "ansi-colors": "^4.1.1",
     "chalk": "^4.1.2",
+    "chalk5": "npm:chalk@^5",
     "clean-publish": "^3.0.3",
     "cli-color": "^2.0.0",
     "colorette": "^2.0.12",
+    "esbuild": "^0.27.0",
     "kleur": "^4.1.4",
     "mitata": "^1.0.10",
     "nanocolors": "^0.2.12",
