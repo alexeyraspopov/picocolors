@@ -60,6 +60,15 @@ test("edge runtime", () => {
 	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
 })
 
+test("missing process global", () => {
+	let context = vm.createContext({ module: { exports: {} } })
+	let script = new vm.Script(source)
+	script.runInContext(context)
+	let pc = context.module.exports
+	assert.equal(pc.isColorSupported, false)
+	assert.equal(pc.red("text"), "text")
+})
+
 function test(name, fn) {
 	try {
 		fn()
