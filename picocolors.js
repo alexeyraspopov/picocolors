@@ -1,7 +1,15 @@
 let p = process || {}, argv = p.argv || [], env = p.env || {}
+// FORCE_COLOR=0 must disable colors (force-color.org); !!\"0\" is true in JS
+let forceColor = env.FORCE_COLOR
 let isColorSupported =
 	!(!!env.NO_COLOR || argv.includes("--no-color")) &&
-	(!!env.FORCE_COLOR || argv.includes("--color") || p.platform === "win32" || ((p.stdout || {}).isTTY && env.TERM !== "dumb") || !!env.CI)
+	(forceColor === "0"
+		? false
+		: !!forceColor ||
+			argv.includes("--color") ||
+			p.platform === "win32" ||
+			((p.stdout || {}).isTTY && env.TERM !== "dumb") ||
+			!!env.CI)
 
 let formatter = (open, close, replace = open) =>
 	input => {

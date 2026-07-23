@@ -36,6 +36,12 @@ test("env FORCE_COLOR", () => {
 	assert.equal(pc.red("text"), pc.createColors(true).red("text"))
 })
 
+test("env FORCE_COLOR=0", () => {
+	let pc = initModuleEnv({ env: { FORCE_COLOR: "0", CI: "1" }, platform: "win32" })
+	assert.equal(pc.isColorSupported, false)
+	assert.equal(pc.red("text"), pc.createColors(false).red("text"))
+})
+
 test("arg --no-color", () => {
 	let pc = initModuleEnv({ env: { FORCE_COLOR: "1" }, argv: ["--no-color"] })
 	assert.equal(pc.isColorSupported, false)
