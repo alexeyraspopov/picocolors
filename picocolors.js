@@ -1,4 +1,6 @@
-let p = process || {}, argv = p.argv || [], env = p.env || {}
+let p = typeof process !== "undefined" ? process : {}, argv = p.argv || [],
+    env = p.env || (typeof window !== "undefined" && typeof window.document !== "undefined" &&
+    (navigator.userAgent.includes("Chrome/") && argv.push("--color"), window)) || {}
 let isColorSupported =
 	!(!!env.NO_COLOR || argv.includes("--no-color")) &&
 	(!!env.FORCE_COLOR || argv.includes("--color") || p.platform === "win32" || ((p.stdout || {}).isTTY && env.TERM !== "dumb") || !!env.CI)
