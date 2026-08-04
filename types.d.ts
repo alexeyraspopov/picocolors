@@ -8,6 +8,11 @@ export interface Colors {
 	dim: Formatter
 	italic: Formatter
 	underline: Formatter
+	underlineDouble: Formatter
+	underlineCurly: Formatter
+	underlineDotted: Formatter
+	underlineDashed: Formatter
+	overline: Formatter
 	inverse: Formatter
 	hidden: Formatter
 	strikethrough: Formatter

@@ -8,6 +8,11 @@ const FMT = {
 	dim: ["\x1b[2m", "\x1b[22m"],
 	italic: ["\x1b[3m", "\x1b[23m"],
 	underline: ["\x1b[4m", "\x1b[24m"],
+	underlineDouble: ["\x1b[4:2m", "\x1b[24m"],
+	underlineCurly: ["\x1b[4:3m", "\x1b[24m"],
+	underlineDotted: ["\x1b[4:4m", "\x1b[24m"],
+	underlineDashed: ["\x1b[4:5m", "\x1b[24m"],
+	overline: ["\x1b[53m", "\x1b[55m"],
 	inverse: ["\x1b[7m", "\x1b[27m"],
 	hidden: ["\x1b[8m", "\x1b[28m"],
 	strikethrough: ["\x1b[9m", "\x1b[29m"],
@@ -96,16 +101,26 @@ test("complex case of wrapping", () => {
 			FMT.bold[1]
 	)
 
-	assert.equal(
-		pc.cyan(pc.bold(pc.underline("==TEST=="))),
-		FMT.cyan[0] +
-			FMT.bold[0] +
-			FMT.underline[0] +
-			"==TEST==" +
-			FMT.underline[1] +
-			FMT.bold[1] +
-			FMT.cyan[1]
-	)
+	const xlines = [
+		'underline',
+		'underlineDouble',
+		'underlineCurly',
+		'underlineDotted',
+		'underlineDashed',
+		'overline'
+	]
+	for (const xline of xlines) {
+		assert.equal(
+			pc.cyan(pc.bold(pc[xline]("==TEST=="))),
+			FMT.cyan[0] +
+				FMT.bold[0] +
+				FMT[xline][0] +
+				"==TEST==" +
+				FMT[xline][1] +
+				FMT.bold[1] +
+				FMT.cyan[1]
+		)
+	}
 })
 
 test("close sequence replacement", () => {

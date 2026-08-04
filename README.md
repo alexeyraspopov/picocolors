@@ -114,7 +114,7 @@ console.log(
 )
 ```
 
-Besides colors, the object includes following formatting functions: `dim`, `bold`, `hidden`, `italic`, `underline`, `strikethrough`, `reset`, `inverse` and bright variants `blackBright`, `redBright`, `greenBright`, `yellowBright`, `blueBright`, `magentaBright`, `cyanBright`, `whiteBright`.
+Besides colors, the object includes following formatting functions: `dim`, `bold`, `hidden`, `italic`, `underline`, `underlineDouble`, `underlineCurly`, `underlineDotted`, `underlineDashed`, `overline`, `strikethrough`, `reset`, `inverse` and bright variants `blackBright`, `redBright`, `greenBright`, `yellowBright`, `blueBright`, `magentaBright`, `cyanBright`, `whiteBright`.
 
 ```javascript
 for (let task of tasks) {
